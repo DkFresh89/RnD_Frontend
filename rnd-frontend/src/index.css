@@ -132,6 +132,7 @@ background-color: blue;
 
 /* Login Div */
 .login{
+  text-align: center;
   position: absolute;
   width: 966px;
   height: 549px;
@@ -144,6 +145,7 @@ background-color: blue;
 
 /* Signup Div */
 .signUp{
+  text-align: center;
   position: absolute;
   width: 966px;
   height: 549px;
@@ -159,7 +161,7 @@ background-color: blue;
   width: 302px;
   height: 33px;
   left: 581px;
-  top: 450px;
+  top: 400px;
 
   background: #b8fffb;
 }
@@ -175,6 +177,18 @@ background-color: blue;
 
   background: #b8fffb;
 }
+
+/* Choose Game */
+.chooseGame{
+  position: absolute;
+  width: 694px;
+  height: 650px;
+  left: 698px;
+  top: 109px;
+
+  background: #C4C4C4;
+}
+
 
 
 

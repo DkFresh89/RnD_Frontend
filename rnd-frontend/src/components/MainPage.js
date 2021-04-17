@@ -3,6 +3,11 @@ import User from './User'
 
 function MainPage () {
 
+
+
+
+    
+// ----------- DOM ----------- //  
     return (
     <div className="mainPage">
         <h1>Main Page</h1>

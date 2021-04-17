@@ -6,9 +6,11 @@ function Login () {
 // ----------- Use States ----------- //
     const history = useHistory()
 
-// ----------- Handle Login and Signup Call Backs ----------- //
+// ----------- Navigation to MainPage ----------- //
     const handleMainPage = () => history.push("/main_page")
 
+    
+// ----------- DOM ----------- //  
     return (
     <div className="login">
         <h1>Login</h1>

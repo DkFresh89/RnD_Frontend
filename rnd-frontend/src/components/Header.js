@@ -1,5 +1,11 @@
 
 function Header () {
+
+
+
+
+    
+// ----------- DOM ----------- //  
     return (
     <div className='navbar'>
         <p className="highScore">High Score</p>

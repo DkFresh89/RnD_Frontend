@@ -5,10 +5,10 @@ function Signup () {
 // ----------- Use States ----------- //
     const history = useHistory()
 
-// ----------- Handle Login and Signup Call Backs ----------- //
+// ----------- Navigation to MainPage ----------- //
     const handleMainPage = () => history.push("/login")
 
-   
+ // ----------- DOM ----------- //    
     return (
     <div className="signUp">
         <h1>Signup</h1>

@@ -3,6 +3,11 @@ import Answers from './Answers'
 
 function GamePage () {
 
+
+
+
+    
+// ----------- DOM ----------- //  
     return (
     <div className="gamePage">
         <h1>Game Page</h1>

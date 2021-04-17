@@ -1,5 +1,11 @@
 
 function User () {
+
+
+
+
+    
+// ----------- DOM ----------- //  
     return (
     <div className="user">
         <h1>User</h1>
