@@ -1,7 +1,7 @@
 
 function Question () {
     return (<div className="null">
-        <h1>Hello World</h1>
+        <h1>Question</h1>
     </div>)
 }
 

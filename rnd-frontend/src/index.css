@@ -43,7 +43,7 @@ background-color: blue;
   text-align: center;
   position: relative;
   width: 363px;
-  height: 69px;
+  height: 59px;
   left: 560px;
   top: 12px;
 
@@ -51,7 +51,7 @@ background-color: blue;
 }
 
 /* High Score */
-.highscore{
+.highScore{
   position: relative;
   width: 145px;
   height: 40px;
@@ -60,4 +60,40 @@ background-color: blue;
 
   background: #C4C4C4;
 }
+
+/* Username */
+.username{
+  /* position: relative; */
+  width: 145px;
+  height: 40px;
+  left: 46px;
+  top: 28px;
+
+  background: #EC0000;
+}
+
+/* Main Page */
+.mainPage{
+  position: relative;
+  width: 1424px;
+  height: 792px;
+  left: 0px;
+  top: 93px;
+
+  background: green;
+}
+
+/* Game Page */
+.gamePage{
+  position: relative;
+  width: 1146px;
+  height: 763px;
+  left: 277px;
+  top: 117px;
+
+  background: #DA02DE;
+}
+
+
+
 

@@ -1,7 +1,7 @@
 
 function User () {
     return (<div className="null">
-        <h1>Hello World</h1>
+        <h1>User</h1>
     </div>)
 }
 

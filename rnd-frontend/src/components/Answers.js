@@ -1,7 +1,7 @@
 
 function Answers () {
     return (<div className="null">
-        <h1>Hello World</h1>
+        <h1>Answers</h1>
     </div>)
 }
 
