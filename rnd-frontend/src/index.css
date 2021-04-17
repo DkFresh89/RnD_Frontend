@@ -94,6 +94,43 @@ background-color: blue;
   background: #DA02DE;
 }
 
+/* User Div */
+.user{
+  position: absolute;
+  width: 249px;
+  height: 773px;
+  left: 17px;
+  top: 107px;
+
+  background: #C4C4C4;
+
+}
+
+/* Answers */
+.answers{
+  position: absolute;
+  width: 1119px;
+  height: 188px;
+  left: 292px;
+  top: 676px;
+
+  background: #00ffdd;
+}
+
+
+
+/* Question */
+.question{
+  position: absolute;
+  width: 1115px;
+  height: 509px;
+  left: 292px;
+  top: 130px;
+
+  background: #ff00ff;
+}
+
+
 
 
 

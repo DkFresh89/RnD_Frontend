@@ -1,6 +1,6 @@
 
 function Answers () {
-    return (<div className="null">
+    return (<div className="answers">
         <h1>Answers</h1>
     </div>)
 }

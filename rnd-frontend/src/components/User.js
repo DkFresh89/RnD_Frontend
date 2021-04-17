@@ -1,6 +1,6 @@
 
 function User () {
-    return (<div className="null">
+    return (<div className="user">
         <h1>User</h1>
     </div>)
 }

@@ -1,6 +1,6 @@
 
 function Question () {
-    return (<div className="null">
+    return (<div className="question">
         <h1>Question</h1>
     </div>)
 }
