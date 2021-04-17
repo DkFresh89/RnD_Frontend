@@ -1,8 +1,10 @@
 
 function Answers () {
-    return (<div className="answers">
+    return (
+    <div className="answers">
         <h1>Answers</h1>
-    </div>)
+    </div>
+    )
 }
 
 export default Answers

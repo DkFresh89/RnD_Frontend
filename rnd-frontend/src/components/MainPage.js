@@ -3,11 +3,13 @@ import User from './User'
 
 function MainPage () {
 
-    return (<div className="mainPage">
+    return (
+    <div className="mainPage">
         <h1>Main Page</h1>
         <GamePage />
         <User />
-    </div>)
+    </div>
+    )
 }
 
 export default MainPage

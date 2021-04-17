@@ -1,8 +1,10 @@
 
 function Question () {
-    return (<div className="question">
+    return (
+    <div className="question">
         <h1>Question</h1>
-    </div>)
+    </div>
+    )
 }
 
 export default Question

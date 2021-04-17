@@ -1,8 +1,10 @@
 
 function User () {
-    return (<div className="user">
+    return (
+    <div className="user">
         <h1>User</h1>
-    </div>)
+    </div>
+    )
 }
 
 export default User

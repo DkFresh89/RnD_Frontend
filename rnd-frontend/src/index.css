@@ -130,6 +130,53 @@ background-color: blue;
   background: #ff00ff;
 }
 
+/* Login Div */
+.login{
+  position: absolute;
+  width: 966px;
+  height: 549px;
+  left: 249px;
+  top: 175px;
+
+  background: #C4C4C4;
+}
+
+
+/* Signup Div */
+.signUp{
+  position: absolute;
+  width: 966px;
+  height: 549px;
+  left: 249px;
+  top: 175px;
+
+  background: #C4C4C4;
+}
+
+/* Username */
+.usernameEnter{
+  position: absolute;
+  width: 302px;
+  height: 33px;
+  left: 581px;
+  top: 450px;
+
+  background: #b8fffb;
+}
+
+
+/* Password */
+.passwordEnter{
+  position: absolute;
+  width: 302px;
+  height: 33px;
+  left: 581px;
+  top: 450px;
+
+  background: #b8fffb;
+}
+
+
 
 
 
