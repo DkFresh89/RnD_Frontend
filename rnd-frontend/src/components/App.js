@@ -6,6 +6,7 @@ import Header from './Header'
 import Login from './Login'
 import Signup from './Signup'
 import ChooseGame from './ChooseGame'
+import MainPage from './MainPage';
 
 function App() {
 

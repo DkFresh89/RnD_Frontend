@@ -9,6 +9,7 @@ function ChooseGame () {
     const [difficulty, setDifficulty] = useState("easy")
     const [numberQuestions, setNumberQuestions] = useState("10")
     const [category, setCategory] = useState("9")
+    const [questions, setQuestions] = useState([])
 
 // ----------- Form Callbacks ----------- //
     const handleDifficulty = (e) => setDifficulty(e.target.value)
@@ -16,7 +17,7 @@ function ChooseGame () {
     const handleCategory = (e) => setCategory(e.target.value)
 
 // ----------- Fetch ----------- //
-    const tempUrl = `https://opentdb.com/api.php?amount=${numberQuestions}&category=${category}&difficulty=${difficulty}`
+    // const tempUrl = `https://opentdb.com/api.php?amount=${numberQuestions}&category=${category}&difficulty=${difficulty}`
 
     const handleFetch = (e) => {
         e.preventDefault()
@@ -26,7 +27,7 @@ function ChooseGame () {
             category: category
         }
         
-        fetch("http://localhost3000/questions/choose_game", {
+        fetch("http://localhost:3000/questions/choose_game", {
             method: 'POST',
             headers: {
                 'Content-Type': 'Application/json',
@@ -34,8 +35,13 @@ function ChooseGame () {
             },
             body: JSON.stringify(chosenGame)
         })
-        TODO add fetch to backend the tempUrl above works dynamically as GET from the Open Trivia DB
+        .then(resp => resp.json())
+        .then(questionsArray => {
+            setQuestions(questionsArray)
+        })
+        // TODO add fetch to backend the tempUrl above works dynamically as GET from the Open Trivia DB
     }
+    console.log(questions)
 
 // ----------- DOM ----------- //  
     return (
