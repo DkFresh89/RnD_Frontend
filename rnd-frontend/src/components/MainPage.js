@@ -3,7 +3,7 @@ import User from './User'
 
 function MainPage () {
 
-
+    
 
 
     
