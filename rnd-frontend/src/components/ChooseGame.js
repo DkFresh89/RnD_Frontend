@@ -20,7 +20,21 @@ function ChooseGame () {
 
     const handleFetch = (e) => {
         e.preventDefault()
-        // TODO add fetch to backend the tempUrl above works dynamically as GET from the Open Trivia DB
+        const chosenGame = {
+            difficulty: difficulty,
+            num_of_questions: numberQuestions,
+            category: category
+        }
+        
+        fetch("http://localhost3000/questions/choose_game", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'Application/json',
+                'Accept': 'Application/json'
+            },
+            body: JSON.stringify(chosenGame)
+        })
+        TODO add fetch to backend the tempUrl above works dynamically as GET from the Open Trivia DB
     }
 
 // ----------- DOM ----------- //  
@@ -34,7 +48,7 @@ function ChooseGame () {
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>  
                 </select>
-                <input onChange={handleNumberQuestions} defaultValue="10" type="number" min="10" max="50" placeholder="# of Questions (10-50)"/>
+                <input onChange={handleNumberQuestions} type="number" defaultValue="10" min="10" max="50" />
                 <select onChange={handleCategory}>
                     <option value={9}>General Knowledge</option>
                     <option value={27}>Animals</option>
