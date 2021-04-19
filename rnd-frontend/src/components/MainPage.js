@@ -1,9 +1,7 @@
 import GamePage from './GamePage'
 import User from './User'
 
-function MainPage () {
-
-    
+function MainPage ({questions}) {
 
 
     
@@ -11,7 +9,7 @@ function MainPage () {
     return (
     <div className="mainPage">
         <h1>Main Page</h1>
-        <GamePage />
+        <GamePage questions={questions}/>
         <User />
     </div>
     )

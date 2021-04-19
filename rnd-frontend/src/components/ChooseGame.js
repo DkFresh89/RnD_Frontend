@@ -1,20 +1,25 @@
 import MainPage from './MainPage'
 import {useState} from "react"
+import { useHistory } from "react-router-dom"
+import { Redirect } from 'react-router-dom'
 
 
-function ChooseGame () {
+function ChooseGame ({setQuestions}) {
 
 // ----------- Use States ----------- //
 
     const [difficulty, setDifficulty] = useState("easy")
     const [numberQuestions, setNumberQuestions] = useState("10")
     const [category, setCategory] = useState("9")
-    const [questions, setQuestions] = useState([])
 
 // ----------- Form Callbacks ----------- //
     const handleDifficulty = (e) => setDifficulty(e.target.value)
     const handleNumberQuestions = (e) => setNumberQuestions(e.target.value)
     const handleCategory = (e) => setCategory(e.target.value)
+
+    //--------------History Callback----------//
+
+    const history = useHistory()
 
 // ----------- Fetch ----------- //
     // const tempUrl = `https://opentdb.com/api.php?amount=${numberQuestions}&category=${category}&difficulty=${difficulty}`
@@ -38,10 +43,11 @@ function ChooseGame () {
         .then(resp => resp.json())
         .then(questionsArray => {
             setQuestions(questionsArray)
+            history.push("/main_page")    
         })
         // TODO add fetch to backend the tempUrl above works dynamically as GET from the Open Trivia DB
     }
-    console.log(questions)
+    // console.log(questionsArray)
 
 // ----------- DOM ----------- //  
     return (

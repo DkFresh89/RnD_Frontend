@@ -12,6 +12,7 @@ function App() {
 
   // ----------- Use States ----------- //
   const history = useHistory()
+  const [questions, setQuestions] = useState([])
 
   // ----------- Handle Login and Signup Call Backs ----------- //
   const handleLogin = () => history.push("/login")
@@ -24,7 +25,10 @@ function App() {
       <main>
         <Switch>
           <Route path="/choose_game">
-            <ChooseGame />
+            <ChooseGame setQuestions={setQuestions} />
+          </Route>
+          <Route path="/main_page">
+            <MainPage questions={questions} />
           </Route>
           <Route path="/login" >
             <Login />
