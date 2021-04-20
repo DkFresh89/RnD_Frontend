@@ -4,7 +4,7 @@ function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQue
     
    console.log(points);
 
-  
+        //switch statement for 
     const checkAnswer = (e) => {
         // debugger
         if (e.target.innerText === correct_answer){
@@ -16,7 +16,7 @@ function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQue
     console.log(points);
 
     const answers = [...incorrect_answers, correct_answer].sort(() => Math.random() - 0.5).map(answers =>{
-       return <li correct_answer={{correct_answer}, "hidden" } onClick={!finalAnswer ? checkAnswer : null}  >{answers.replace(/&#039;/g, "'").replace(/&quot;/g, `"`).replace(/&ldquo;/g, `"`).replace(/&rsquo;/g, "'").replace(/&rdquo;/g, `"`).replace(/&shy;/g, "-").replace(/&hellip;/g, "...").replace(/&Aring;/g, "Å").replace(/&oacute;s/g, "ó")}</li>
+        return <li correct_answer={{correct_answer}, "hidden" } onClick={!finalAnswer ? checkAnswer : null}  >{answers.replace(/&#039;/g, "'").replace(/&quot;/g, `"`).replace(/&ldquo;/g, `"`).replace(/&rsquo;/g, "'").replace(/&rdquo;/g, `"`).replace(/&shy;/g, "-").replace(/&hellip;/g, "...").replace(/&Aring;/g, "Å").replace(/&oacute;s/g, "ó")}</li>
     })
     
 // ----------- DOM ----------- //  

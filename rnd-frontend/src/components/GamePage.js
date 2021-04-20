@@ -1,6 +1,7 @@
 import Question from './Question'
 import Answers from './Answers'
 import {useState} from 'react'
+import GameOver from './GameOver'
 
 
 function GamePage ({questions, setPoints, points, handleGameOver}) {
@@ -25,7 +26,7 @@ const nextQuestion = () => {
         
         console.log(q["question"].replace(/&#039;/g, "'"))
         return (
-            <Question key={q["id"]} query={q["question"].replace(/&#039;/g, "'").replace(/&quot;/g, `"`).replace(/&ldquo;/g, `"`).replace(/&rsquo;/g, "'").replace(/&rdquo;/g, `"`).replace(/&shy;/g, "-").replace(/&hellip;/g, "...").replace(/&Aring;/g, "Å")} />
+            <Question key={q["id"]} query={q["question"].replace(/&#039;/g, "'").replace(/&quot;/g, `"`).replace(/&ldquo;/g, `"`).replace(/&rsquo;/g, "'").replace(/&rdquo;/g, `"`).replace(/&shy;/g, "-").replace(/&hellip;/g, "...").replace(/&Aring;/g, "Å")} points={points}/>
             )
     })
         
@@ -48,8 +49,9 @@ const nextQuestion = () => {
     return (
     <div className="gamePage">
         <h1>Game Page</h1>
-        {questionsArray[round] ? questionsArray[round] : handleGameOver()}
+        {questionsArray[round]}
         {answersArray[round] ? answersArray[round] : handleGameOver()}
+        {!answersArray[round] && <GameOver  points={points} questions={questions}/>}
         
     </div>
     )

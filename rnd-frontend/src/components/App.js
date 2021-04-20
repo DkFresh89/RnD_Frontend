@@ -1,5 +1,5 @@
 import '../App.css';
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import { Switch, Route } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 import Header from './Header'
@@ -18,33 +18,31 @@ function App() {
   // ----------- Handle Login and Signup Call Backs ----------- //
   const handleLogin = () => history.push("/login")
   const handleSignup = () => history.push("/signup")
-
+  
   const handleGameOver = () => {
-
-    const newGame = {
+    const gameOver = {
       score: points,
       game_type: questions[0]["category"],
       time: 0.0,
       num_of_questions: questions.length,
       user_id: 1
     }
-    // debugger
-    
+
     fetch("http://localhost:3000/games/game_over", {
       method: 'POST',
       headers: {
           'Content-Type': 'Application/json',
           'Accept': 'Application/json'
       },
-      body: JSON.stringify(newGame)
+      body: JSON.stringify(gameOver)
     })
     .then(resp => resp.json())
     .then(game => {
         console.log(game)
-        console.log("hello")
-        // history.push("/main_page")    
+        
     })
-  }
+    
+}
 
 // ----------- DOM ----------- //  
   return (

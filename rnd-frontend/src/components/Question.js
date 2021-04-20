@@ -1,5 +1,5 @@
 
-function Question ({query}) {
+function Question ({query, points}) {
 
 
 
@@ -9,6 +9,7 @@ function Question ({query}) {
     return (
     <div className="question">
         <h1>Question</h1>
+        <h3>Points: {points}</h3><br/><br/>
         <p>{query}</p>
     </div>
     )

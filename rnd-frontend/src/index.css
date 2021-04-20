@@ -189,6 +189,19 @@ background-color: blue;
   background: #C4C4C4;
 }
 
+ /* Game Over */
+.gameOver{
+  position: absolute;
+width: 1116px;
+height: 733px;
+left: 295px;
+top: 131px;
+
+background: #1fcc00;
+}
+
+
+
 
 
 

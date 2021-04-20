@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom"
+import {useState} from "react"
 
 
 function Login () {
@@ -7,7 +8,10 @@ function Login () {
     const history = useHistory()
 
 // ----------- Navigation to MainPage ----------- //
-    const handleMainPage = () => history.push("/main_page")
+    const handleMainPage = () => {
+
+        history.push("/main_page")
+    }
 
     
 // ----------- DOM ----------- //  
