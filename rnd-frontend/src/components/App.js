@@ -20,28 +20,30 @@ function App() {
   const handleSignup = () => history.push("/signup")
 
   const handleGameOver = () => {
-    console.log("hello")
-    // const newGame = {
-    //   score: points,
-    //   game_type: questions[0]["category"]
-    // }
-    debugger
 
-
-
-  //   fetch("http://localhost:3000/games", {
-  //     method: 'POST',
-  //     headers: {
-  //         'Content-Type': 'Application/json',
-  //         'Accept': 'Application/json'
-  //     },
-  //     body: JSON.stringify(chosenGame)
-  // })
-  // .then(resp => resp.json())
-  // .then(questionsArray => {
-  //     setQuestions(questionsArray)
-  //     history.push("/main_page")    
-  // })
+    const newGame = {
+      score: points,
+      game_type: questions[0]["category"],
+      time: 0.0,
+      num_of_questions: questions.length,
+      user_id: 1
+    }
+    // debugger
+    
+    fetch("http://localhost:3000/games/game_over", {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'Application/json',
+          'Accept': 'Application/json'
+      },
+      body: JSON.stringify(newGame)
+    })
+    .then(resp => resp.json())
+    .then(game => {
+        console.log(game)
+        console.log("hello")
+        // history.push("/main_page")    
+    })
   }
 
 // ----------- DOM ----------- //  
