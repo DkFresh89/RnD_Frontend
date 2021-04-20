@@ -60,7 +60,7 @@ function ChooseGame ({setQuestions}) {
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>  
                 </select>
-                <input onChange={handleNumberQuestions} type="number" defaultValue="10" min="10" max="50" />
+                <input onChange={handleNumberQuestions} type="number" defaultValue="10" min="1" max="50" />
                 <select onChange={handleCategory}>
                     <option value={9}>General Knowledge</option>
                     <option value={27}>Animals</option>

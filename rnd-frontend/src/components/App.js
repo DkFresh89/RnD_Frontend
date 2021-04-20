@@ -19,6 +19,31 @@ function App() {
   const handleLogin = () => history.push("/login")
   const handleSignup = () => history.push("/signup")
 
+  const handleGameOver = () => {
+    console.log("hello")
+    // const newGame = {
+    //   score: points,
+    //   game_type: questions[0]["category"]
+    // }
+    debugger
+
+
+
+  //   fetch("http://localhost:3000/games", {
+  //     method: 'POST',
+  //     headers: {
+  //         'Content-Type': 'Application/json',
+  //         'Accept': 'Application/json'
+  //     },
+  //     body: JSON.stringify(chosenGame)
+  // })
+  // .then(resp => resp.json())
+  // .then(questionsArray => {
+  //     setQuestions(questionsArray)
+  //     history.push("/main_page")    
+  // })
+  }
+
 // ----------- DOM ----------- //  
   return (
     <div>
@@ -29,7 +54,12 @@ function App() {
             <ChooseGame setQuestions={setQuestions} />
           </Route>
           <Route path="/main_page">
-            <MainPage questions={questions} setPoints={setPoints} points={points}/>
+            <MainPage 
+              questions={questions} 
+              setPoints={setPoints} 
+              points={points} 
+              handleGameOver={handleGameOver}
+            />
           </Route>
           <Route path="/login" >
             <Login />
