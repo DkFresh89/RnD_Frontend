@@ -1,5 +1,5 @@
 
-function Question ({query, nextQuestion}) {
+function Question ({query}) {
 
 
 
@@ -10,7 +10,6 @@ function Question ({query, nextQuestion}) {
     <div className="question">
         <h1>Question</h1>
         <p>{query}</p>
-        <button onClick={nextQuestion} >Next Question</button>
     </div>
     )
 }
