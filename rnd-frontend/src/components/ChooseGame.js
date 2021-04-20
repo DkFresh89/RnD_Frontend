@@ -1,7 +1,6 @@
-import MainPage from './MainPage'
 import {useState} from "react"
 import { useHistory } from "react-router-dom"
-import { Redirect } from 'react-router-dom'
+
 
 
 function ChooseGame ({setQuestions}) {
@@ -24,6 +23,7 @@ function ChooseGame ({setQuestions}) {
 // ----------- Fetch ----------- //
     // const tempUrl = `https://opentdb.com/api.php?amount=${numberQuestions}&category=${category}&difficulty=${difficulty}`
 
+    
     const handleFetch = (e) => {
         e.preventDefault()
         const chosenGame = {
@@ -54,7 +54,7 @@ function ChooseGame ({setQuestions}) {
         <div className="chooseGame">
             <h1>Choose Game</h1>
             <form onSubmit={handleFetch}>
-                <checkbox />
+                
                 <select onChange={handleDifficulty}>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
