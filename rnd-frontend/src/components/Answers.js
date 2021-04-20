@@ -1,6 +1,15 @@
-
+import { chakra } from "@chakra-ui/react"
 
 function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQuestion, finalAnswer, setFinalAnswer}) {
+
+    const Button = chakra("button", {
+        baseStyle: {
+            px: "3",
+  py: "2",
+  bg: "green.200",
+  rounded: "md"
+        },
+      })
     
    console.log(points);
 
@@ -24,7 +33,7 @@ function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQue
     <div className="answers">
         <h1>Answers</h1>
         <ul>{answers}</ul>
-        <button onClick={nextQuestion} >Next Question</button>
+        <Button onClick={nextQuestion} >Next Question</Button>
     </div>
     )
 }

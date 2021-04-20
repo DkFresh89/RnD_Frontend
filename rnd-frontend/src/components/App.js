@@ -8,12 +8,14 @@ import Signup from './Signup'
 import ChooseGame from './ChooseGame'
 import MainPage from './MainPage';
 
+
 function App() {
 
   // ----------- Use States ----------- //
   const history = useHistory()
   const [questions, setQuestions] = useState([])
   const [points, setPoints] = useState(0)
+  const [currentUser, setCurrentUser] = useState(null)
 
   // ----------- Handle Login and Signup Call Backs ----------- //
   const handleLogin = () => history.push("/login")
@@ -41,7 +43,7 @@ function App() {
         console.log(game)
         
     })
-    
+
 }
 
 // ----------- DOM ----------- //  
@@ -62,10 +64,10 @@ function App() {
             />
           </Route>
           <Route path="/login" >
-            <Login />
+            <Login setCurrentUser={setCurrentUser}/>
           </Route>
           <Route path="/signup">
-            <Signup />
+            <Signup setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/">
             <div className="login">
