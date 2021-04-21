@@ -37,7 +37,7 @@ top: 0px;
 background-color: blue;
 }
 
-/* Logo */
+/* Logo
 #logo{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
@@ -45,10 +45,10 @@ background-color: blue;
   width: 363px;
   height: 59px;
   left: 560px;
-  top: 12px;
+  top: -85px;
 
   background: #C4C4C4;
-}
+} */
 
 /* High Score */
 .highScore{
@@ -131,7 +131,7 @@ background-color: blue;
 }
 
 /* Login Div */
-.login{
+/* .login{
   text-align: center;
   position: absolute;
   width: 966px;
@@ -140,7 +140,7 @@ background-color: blue;
   top: 175px;
 
   background: #C4C4C4;
-}
+} */
 
 
 /* Signup Div */
@@ -183,8 +183,8 @@ background-color: blue;
   position: absolute;
   width: 694px;
   height: 650px;
-  left: 698px;
-  top: 109px;
+  margin-left: 25%;
+  margin-top: 50px;
 
   background: #C4C4C4;
 }
@@ -194,8 +194,8 @@ background-color: blue;
   position: absolute;
 width: 1116px;
 height: 733px;
-left: 295px;
-top: 131px;
+margin-left: 25%;
+margin-top: 50px;
 
 background: #1fcc00;
 }
