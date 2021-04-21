@@ -60,7 +60,10 @@ const handleUserUpdate = () => {
     },
     body: JSON.stringify(user)
   })
-    .then(console.log("life is good"))
+    .then(resp => resp.json())
+    .then(userData =>{
+      localStorage.setItem("user", JSON.stringify(userData))
+    })
   
 }
 

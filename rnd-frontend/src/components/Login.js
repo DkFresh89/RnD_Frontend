@@ -41,6 +41,7 @@ function Login ({setCurrentUser}) {
             }
         })
         .then(userData => {
+            console.log(userData.user)
             setCurrentUser(userData.user)
             localStorage.setItem("user", JSON.stringify(userData.user))
             history.push("/choose_game")

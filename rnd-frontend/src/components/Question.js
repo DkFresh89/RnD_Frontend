@@ -8,12 +8,11 @@ function Question ({query, points}) {
     
 // ----------- DOM ----------- //  
     return (
-    <Container >
-        <Stack direction="row">
+    <Container centerContent>
         <Box><h1>Question:</h1></Box>
-        <Spacer />
-        <Box><h3>Points: {points}</h3></Box>
+        <Stack >
         <Box>{query}</Box>
+        <Box><h3>Points: {points}</h3></Box>
         </Stack>
     </Container>
     )

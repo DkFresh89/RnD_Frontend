@@ -1,4 +1,4 @@
-import { chakra, Grid, Box } from "@chakra-ui/react"
+import { chakra, Grid, Box, Flex, GridItem } from "@chakra-ui/react"
 
 function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQuestion, finalAnswer, setFinalAnswer}) {
 
@@ -25,16 +25,23 @@ function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQue
     console.log(points);
 
     const answers = [...incorrect_answers, correct_answer].sort(() => Math.random() - 0.5).map(answers =>{
-        return <li correct_answer={{correct_answer}, "hidden" } onClick={!finalAnswer ? checkAnswer : null}  >{answers.replace(/&#039;/g, "'").replace(/&quot;/g, `"`).replace(/&ldquo;/g, `"`).replace(/&rsquo;/g, "'").replace(/&rdquo;/g, `"`).replace(/&shy;/g, "-").replace(/&hellip;/g, "...").replace(/&Aring;/g, "Å").replace(/&oacute;s/g, "ó")}</li>
+        return <li key={answers} correct_answer={{correct_answer}, "hidden" } onClick={!finalAnswer ? checkAnswer : null}  >{answers.replace(/&#039;/g, "'").replace(/&quot;/g, `"`).replace(/&ldquo;/g, `"`).replace(/&rsquo;/g, "'").replace(/&rdquo;/g, `"`).replace(/&shy;/g, "-").replace(/&hellip;/g, "...").replace(/&Aring;/g, "Å").replace(/&oacute;/g, "ó")}</li>
     })
     
 // ----------- DOM ----------- //  
     return (
-    <Grid >
+        <>
         <h1>Answers:</h1>
-        <Box>{answers}</Box>
-        <Button onClick={nextQuestion} >Next Question</Button>
+    <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(5, 1fr)"
+  gap={4}>
+        
+        <GridItem rowSpan={1} colSpan={1}>{answers[0]}</GridItem>
+        <GridItem rowSpan={1} colSpan={4}>{answers[1]}</GridItem>
+        <GridItem rowSpan={1} colSpan={1}>{answers[2]}</GridItem>
+        <GridItem rowSpan={1} colSpan={3}>{answers[3]}</GridItem>
     </Grid>
+        <Box align="center"><Button onClick={nextQuestion} >Next Question</Button></Box>
+    </>
     )
 }
 

@@ -8,8 +8,8 @@ function MainPage ({questions, setPoints, points, handleGameOver, currentUser}) 
     
 // ----------- DOM ----------- //  
     return (
-        <Container>
-    <Flex bg="pink" w="100%" h="100%" >
+        <Container marginTop="5em">
+    <Flex bg="pink" w="100%" h="100%" padding="2em" >
         <h1>Main Page</h1>
         <GamePage 
             questions={questions} 

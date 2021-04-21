@@ -5,28 +5,22 @@ function Signup ({setCurrentUser}) {
 
 // ----------- Use States ----------- //
     const history = useHistory()
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState([])
+    const [formData, setFormData] = useState({
+        username: "",
+        password_digest: "",
+        high_score: 0,
+        rank: 0
+      })
 
 // ----------- Navigation to MainPage ----------- //
 
-    const handleUsername = (e) => {
-        setUsername(e.target.value)
-    }
-    
-    const handlePassword = (e) => {
-        setPassword(e.target.value)
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
     const handleSignup = (e) => {
         e.preventDefault()
-        const newUser = {
-            username: username,
-            password_digest: password,
-            high_score: 0,
-            rank: 0 
-        }
 
         fetch("http://localhost:3000/signup", {
             method: 'POST',
@@ -34,7 +28,7 @@ function Signup ({setCurrentUser}) {
                 'Content-Type': 'Application/json',
                 'Accept': 'Application/json'
             },
-            body: JSON.stringify(newUser)
+            body: JSON.stringify(formData)
         })
         .then(resp => resp.json())
         .then(userData => {
@@ -52,13 +46,13 @@ function Signup ({setCurrentUser}) {
     <div className="signUp">
         <form onSubmit={handleSignup}>
         <h1>Signup</h1>
-        <input onChange={handleUsername} type="text" placeholder="Username" className="usernameEnter"/>
-        <input onChange={handlePassword} type="password" placeholder="Password" className="passwordEnter"/>
-        {errors.map((error) => (
+        <input onChange={handleChange} type="text" placeholder="Username" name="username" className="usernameEnter"/>
+        <input onChange={handleChange} type="password" placeholder="Password" name="password_digest" className="passwordEnter"/>
+        {/* {errors.map((error) => (
           <p key={error} style={{ color: "red" }}>
             {error}
           </p>
-        ))}
+        ))} */}
         <button type="submit" >Sign Up</button>
         </form>
     </div>
