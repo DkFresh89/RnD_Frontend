@@ -1,4 +1,4 @@
-import { chakra } from "@chakra-ui/react"
+import { chakra, Grid, Box } from "@chakra-ui/react"
 
 function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQuestion, finalAnswer, setFinalAnswer}) {
 
@@ -30,11 +30,11 @@ function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQue
     
 // ----------- DOM ----------- //  
     return (
-    <div className="answers">
-        <h1>Answers</h1>
-        <ul>{answers}</ul>
+    <Grid >
+        <h1>Answers:</h1>
+        <Box>{answers}</Box>
         <Button onClick={nextQuestion} >Next Question</Button>
-    </div>
+    </Grid>
     )
 }
 

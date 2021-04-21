@@ -38,8 +38,8 @@ function Signup ({setCurrentUser}) {
         })
         .then(resp => resp.json())
         .then(userData => {
-            setCurrentUser(userData.token)
-            localStorage.setItem("token", userData.token)
+            setCurrentUser(userData.user)
+            localStorage.setItem("user", JSON.stringify(userData.user))
             history.push("/choose_game")
         })
         .catch((data) => {

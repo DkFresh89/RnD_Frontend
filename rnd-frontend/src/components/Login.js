@@ -1,4 +1,4 @@
-import { Box, Center, Square, Stack, Grid, GridItem, Flex, Input, Button} from "@chakra-ui/react"
+import { Box, Stack, Grid, GridItem, Flex, Input, Button} from "@chakra-ui/react"
 import { useHistory } from "react-router-dom"
 import {useState} from "react"
 
@@ -42,7 +42,7 @@ function Login ({setCurrentUser}) {
         })
         .then(userData => {
             setCurrentUser(userData.user)
-            localStorage.setItem("token", userData.token)
+            localStorage.setItem("user", JSON.stringify(userData.user))
             history.push("/choose_game")
         })
         .catch((data) => {
@@ -53,21 +53,21 @@ function Login ({setCurrentUser}) {
 // ----------- DOM ----------- //  
     return (
         <Flex justifyContent="center" alignItems="center" height="100%" width="100%" marginTop="5em">
-    <Box height="549px" width="966px" bg="gray" >
+    <Flex height="549px" width="966px" textAlign="center" alignItems="center" justifyContent="center">
         <form onSubmit={handleLogin}>
         <h1>Login</h1>
-        <Stack spacing="24px" maxWidth="500px" marginTop="2em">
-        <Input bg="teal" onChange={handleChange} type="text" placeholder="Username" name="username"/>
-        <Input bg="teal" onChange={handleChange} type="password" placeholder="Password" name="password" />
+        <Stack spacing="24px" maxWidth="500px" marginTop="2em" textAlign="center">
+        <Input bg="teal" onChange={handleChange} type="text" placeholder="Username" name="username" textAlign="center"/>
+        <Input bg="teal" onChange={handleChange} type="password" placeholder="Password" name="password" textAlign="center"/>
         {/* {errors.map((error) => (
-          <p key={error} style={{ color: "red" }}>
+            <p key={error} style={{ color: "red" }}>
             {error}
-          </p>
+            </p>
         ))} */}
         <Button bg="blue" type="submit"> Login </Button>
         </Stack>
         </form>
-    </Box>
+    </Flex>
     </Flex>
     )
 }

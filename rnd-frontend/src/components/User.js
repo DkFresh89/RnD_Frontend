@@ -1,5 +1,5 @@
 
-function User () {
+function User ({currentUser}) {
 
 
 
@@ -7,7 +7,7 @@ function User () {
     
 // ----------- DOM ----------- //  
     return (
-    <div className="user">
+    <div >
         <h1>User</h1>
     </div>
     )

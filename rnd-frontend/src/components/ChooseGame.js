@@ -1,10 +1,10 @@
 import {useState} from "react"
 import { useHistory } from "react-router-dom"
+import { Box, Center, Square, Stack, Grid, GridItem, Flex, Input, Button} from "@chakra-ui/react"
 
 
 
 function ChooseGame ({setQuestions}) {
-
 // ----------- Use States ----------- //
 
     const [difficulty, setDifficulty] = useState("easy")
@@ -51,8 +51,9 @@ function ChooseGame ({setQuestions}) {
 
 // ----------- DOM ----------- //  
     return (
-        <div className="chooseGame">
-            <h1>Choose Game</h1>
+        <Flex justifyContent="center" alignItems="center" height="100%" width="100%" marginTop="10em" alignContent="space-evenly">
+            <h1>Choose Game</h1><br/><br/>
+            <Flex alignContent="space-evenly">
             <form onSubmit={handleFetch}>
                 
                 <select onChange={handleDifficulty}>
@@ -89,7 +90,8 @@ function ChooseGame ({setQuestions}) {
                 </select>
                 <input type="submit" value="Play Game" />
             </form>
-        </div>
+            </Flex>
+        </Flex>
     )
 }
     

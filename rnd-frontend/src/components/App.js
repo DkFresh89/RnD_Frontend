@@ -7,6 +7,7 @@ import Login from './Login'
 import Signup from './Signup'
 import ChooseGame from './ChooseGame'
 import MainPage from './MainPage';
+import { Button, chakra, Grid, Flex, Box } from "@chakra-ui/react"
 
 
 function App() {
@@ -20,16 +21,23 @@ function App() {
   // ----------- Handle Login and Signup Call Backs ----------- //
   const handleLogin = () => history.push("/login")
   const handleSignup = () => history.push("/signup")
+
+  // ----------- Auto Login ----------- //
+
+  const getUser = localStorage.getItem("user")
+  const user = JSON.parse(getUser)
   
+  
+// ----------- HandleGameOver Call back ----------- //  
   const handleGameOver = () => {
     const gameOver = {
       score: points,
       game_type: questions[0]["category"],
       time: 0.0,
       num_of_questions: questions.length,
-      user_id: 1
+      user_id: user.id
     }
-
+  // ----------- FetchPost to create a new Game Instance ----------- // 
     fetch("http://localhost:3000/games/game_over", {
       method: 'POST',
       headers: {
@@ -38,25 +46,37 @@ function App() {
       },
       body: JSON.stringify(gameOver)
     })
-    .then(resp => resp.json())
-    .then(game => {
-        console.log(game)
-        
-    })
+    handleUserUpdate()    
+  }
+// ----------- HandleUserUpdate Call back ----------- // 
+const handleUserUpdate = () => {
+  console.log(user)
 
+  fetch(`http://localhost:3000/users/game_stats/${user.id}`,{
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(user)
+  })
+    .then(console.log("life is good"))
+  
 }
+
 
 // ----------- DOM ----------- //  
   return (
     <div>
-      <Header />
+      <Header currentUser={currentUser}/>
       <main>
         <Switch>
           <Route path="/choose_game">
             <ChooseGame setQuestions={setQuestions} />
           </Route>
           <Route path="/main_page">
-            <MainPage 
+            <MainPage
+              currentUser={currentUser} 
               questions={questions} 
               setPoints={setPoints} 
               points={points} 
@@ -64,17 +84,19 @@ function App() {
             />
           </Route>
           <Route path="/login" >
-            <Login setCurrentUser={setCurrentUser}/>
+            <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/signup">
             <Signup setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/">
-            <div className="login">
-            <h1>Please Login or Sign Up</h1>
-            <button id="login" onClick={handleLogin}>Login</button>
-            <button id="signup" onClick={handleSignup}>Signup</button>
-            </div>
+            <Flex justifyContent="center" alignItems="center" height="100%" width="100%" marginTop="5em">
+              <Box height="549px" width="966px" bg="gray">
+            <h1>Willkommen!! Please Login or Sign Up</h1><br/><br/>
+            <Button id="login" onClick={handleLogin}>Login</Button>
+            <Button id="signup" onClick={handleSignup}>Signup</Button>
+            </Box>
+            </Flex>
           </Route>
         </Switch>
       </main>

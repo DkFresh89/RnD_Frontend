@@ -2,6 +2,8 @@ import Question from './Question'
 import Answers from './Answers'
 import {useState} from 'react'
 import GameOver from './GameOver'
+import { Box, Flex, Container, Spacer, Stack} from "@chakra-ui/react"
+
 
 
 function GamePage ({questions, setPoints, points, handleGameOver}) {
@@ -32,6 +34,8 @@ const nextQuestion = () => {
         
     const answersArray = questions.map(q => {
         return (
+            <Stack direction="row">
+            <Box>
             <Answers 
                 key={q["id"]}
                 incorrect_answers={q["incorrect_answers"]} 
@@ -41,19 +45,20 @@ const nextQuestion = () => {
                 nextQuestion={nextQuestion}
                 finalAnswer={finalAnswer}
                 setFinalAnswer={setFinalAnswer}
-            />
+            /> 
+        </Box></Stack>
         )
     })
 
 // ----------- DOM ----------- //   
     return (
-    <div className="gamePage">
+    <Container flexDirection="column">
         <h1>Game Page</h1>
-        {questionsArray[round]}
-        {answersArray[round] ? answersArray[round] : handleGameOver()}
+        {questionsArray[round]} 
+       <Stack direction="row"> {answersArray[round] ? answersArray[round] : handleGameOver()}</Stack>
         {!answersArray[round] && <GameOver  points={points} questions={questions}/>}
         
-    </div>
+    </Container>
     )
 
 }
