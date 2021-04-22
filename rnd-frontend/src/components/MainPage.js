@@ -2,7 +2,7 @@ import GamePage from './GamePage'
 import User from './User'
 import { Box, Center, Button, Grid, Container, Flex} from "@chakra-ui/react"
 
-function MainPage ({questions, setPoints, points, handleGameOver, currentUser}) {
+function MainPage ({questions, setPoints, points, handleGameOver, currentUser, gameMatch, setGameMatch}) {
 
 
     
@@ -16,6 +16,8 @@ function MainPage ({questions, setPoints, points, handleGameOver, currentUser}) 
             setPoints={setPoints} 
             points={points}
             handleGameOver={handleGameOver}
+            gameMatch={gameMatch}
+            setGameMatch={setGameMatch}
         />
         <User currentUser={currentUser} />
     </Flex>

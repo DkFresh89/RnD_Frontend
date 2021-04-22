@@ -1,10 +1,17 @@
 import { Box, Center, Button, Grid, Image} from "@chakra-ui/react"
+import { useHistory } from "react-router-dom"
 import logo from './logo.png'
 
 
-function Header ({currentUser}) {
+function Header ({currentUser, setCurrentUser}) {
+    
+    const history = useHistory()
 
-
+    const handleLogout = () => {
+        localStorage.clear()
+        setCurrentUser(null)
+        history.push("/")
+    }
 
 
     console.log(currentUser)
@@ -16,7 +23,7 @@ function Header ({currentUser}) {
         <Box bg="red" alignSelf="center" justifySelf="center">{currentUser ? `High Score: ${currentUser["high_score"]}` : "Login!"}</Box>
         <Box width="100%" bg="green" gridColumnStart="1" gridColumnEnd="6" justifyItems="right" textAlign="right">
             {currentUser ? 
-        <Button  colorScheme="red" width="150px" justifySelf="right">Logout</Button> : null}
+        <Button  onClick={handleLogout} colorScheme="red" width="150px" justifySelf="right">Logout</Button> : null}
             </Box> 
     </Grid>
     )

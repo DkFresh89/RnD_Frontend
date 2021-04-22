@@ -1,5 +1,6 @@
 import { useHistory } from "react-router-dom"
 import {useState} from "react"
+import { Box, Stack, Grid, GridItem, Flex, Input, Button, Text, VStack, Spacer} from "@chakra-ui/react"
 
 function Signup ({setCurrentUser}) {
 
@@ -43,19 +44,26 @@ function Signup ({setCurrentUser}) {
 
  // ----------- DOM ----------- //    
     return (
-    <div className="signUp">
+    <Flex justifyContent="center" alignItems="center" height="100%" width="100%" marginTop="10em">
+        <VStack >
+        <Box><Text textAlign="center" fontFamily="'Playfair Display', serif" fontWeight="700">Sign Up Here:</Text></Box>
         <form onSubmit={handleSignup}>
-        <h1>Signup</h1>
-        <input onChange={handleChange} type="text" placeholder="Username" name="username" className="usernameEnter"/>
-        <input onChange={handleChange} type="password" placeholder="Password" name="password_digest" className="passwordEnter"/>
+        
+        <Box><Input onChange={handleChange} type="text" placeholder="Username" name="username" w="250px"/></Box>
+        <Box h="2"></Box>
+        <Spacer/>
+        <Box><Input onChange={handleChange} type="password" placeholder="Password" name="password_digest" w="250px"/></Box>
         {/* {errors.map((error) => (
           <p key={error} style={{ color: "red" }}>
             {error}
           </p>
         ))} */}
-        <button type="submit" >Sign Up</button>
+        <Box h="5"></Box>
+        <Spacer/>
+        <Box align="center"><Button type="submit" ><Text fontFamily="'Playfair Display', serif" >Sign Up</Text></Button></Box>
         </form>
-    </div>
+        </VStack>
+    </Flex>
     )
 }
 

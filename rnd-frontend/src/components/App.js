@@ -17,15 +17,22 @@ function App() {
   const [questions, setQuestions] = useState([])
   const [points, setPoints] = useState(0)
   const [currentUser, setCurrentUser] = useState(null)
+  const [gameMatch, setGameMatch] = useState(false)
+
+
+// ----------- Auto Login ----------- //
+
+  useEffect(() => {
+    const getUser = localStorage.getItem("user")
+
+    if (getUser) {
+      setCurrentUser(JSON.parse(getUser))
+    }
+  }, [])
 
   // ----------- Handle Login and Signup Call Backs ----------- //
   const handleLogin = () => history.push("/login")
   const handleSignup = () => history.push("/signup")
-
-  // ----------- Auto Login ----------- //
-
-  const getUser = localStorage.getItem("user")
-  const user = JSON.parse(getUser)
   
   
 // ----------- HandleGameOver Call back ----------- //  
@@ -35,10 +42,10 @@ function App() {
       game_type: questions[0]["category"],
       time: 0.0,
       num_of_questions: questions.length,
-      user_id: user.id
+      user_id: currentUser.id
     }
   // ----------- FetchPost to create a new Game Instance ----------- // 
-    fetch("http://localhost:3000/games/game_over", {
+    fetch("http://localhost:3000/games/gameover", {
       method: 'POST',
       headers: {
           'Content-Type': 'Application/json',
@@ -46,32 +53,37 @@ function App() {
       },
       body: JSON.stringify(gameOver)
     })
-    handleUserUpdate()    
-  }
-// ----------- HandleUserUpdate Call back ----------- // 
-const handleUserUpdate = () => {
-  console.log(user)
-
-  fetch(`http://localhost:3000/users/game_stats/${user.id}`,{
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify(user)
-  })
     .then(resp => resp.json())
     .then(userData =>{
+      setCurrentUser(userData)
       localStorage.setItem("user", JSON.stringify(userData))
-    })
+    }) 
+  }
+// ----------- HandleUserUpdate Call back ----------- // 
+// const handleUserUpdate = () => {
+//   console.log(currentUser.id)
+//   debugger
+//   fetch(`http://localhost:3000/users/game_stats/${currentUser.id}`,{
+//     method: 'PATCH',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Accept': 'application/json'
+//     },
+//     body: JSON.stringify(currentUser)
+//   })
+//     .then(resp => resp.json())
+//     .then(userData =>{
+//       setCurrentUser(userData)
+//       localStorage.setItem("user", JSON.stringify(userData))
+//     })
   
-}
+// }
 
 
 // ----------- DOM ----------- //  
   return (
     <div>
-      <Header currentUser={currentUser}/>
+      <Header currentUser={currentUser} setCurrentUser={setCurrentUser}/>
       <main>
         <Switch>
           <Route path="/choose_game">
@@ -84,6 +96,8 @@ const handleUserUpdate = () => {
               setPoints={setPoints} 
               points={points} 
               handleGameOver={handleGameOver}
+              gameMatch={gameMatch}
+              setGameMatch={setGameMatch}
             />
           </Route>
           <Route path="/login" >

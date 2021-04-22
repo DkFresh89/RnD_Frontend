@@ -6,7 +6,7 @@ import { Box, Flex, Container, Spacer, Stack} from "@chakra-ui/react"
 
 
 
-function GamePage ({questions, setPoints, points, handleGameOver}) {
+function GamePage ({questions, setPoints, points, handleGameOver, gameMatch, setGameMatch}) {
 
     // console.log(questions)
     
@@ -29,7 +29,7 @@ const nextQuestion = () => {
         console.log(q["question"].replace(/&#039;/g, "'"))
         return (
             <Question key={q["question"]} query={q["question"].replace(/&#039;/g, "'").replace(/&quot;/g, `"`).replace(/&ldquo;/g, `"`).replace(/&rsquo;/g, "'").replace(/&rdquo;/g, `"`).replace(/&shy;/g, "-").replace(/&hellip;/g, "...").replace(/&Aring;/g, "Å").replace(/&eacute;/g, "é")} points={points}/>
-            )
+        )
     })
         
     const answersArray = questions.map(q => {
@@ -56,7 +56,7 @@ const nextQuestion = () => {
 // ----------- DOM ----------- //   
     return (
     <Container flexDirection="column">
-        <h1>Game Page</h1>
+        {/* <h1>Game Page</h1> */}
         {questionsArray[round]} 
         {answersArray[round] ? answersArray[round] : handleGameOver()}
         {!answersArray[round] && <GameOver  points={points} questions={questions}/>}
