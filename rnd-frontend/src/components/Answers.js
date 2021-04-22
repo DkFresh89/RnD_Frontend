@@ -5,9 +5,9 @@ function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQue
     const Button = chakra("button", {
         baseStyle: {
             px: "3",
-  py: "2",
-  bg: "green.200",
-  rounded: "md"
+            py: "2",
+            bg: "green.200",
+            rounded: "md"
         },
       })
     
@@ -30,19 +30,24 @@ function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQue
     
 // ----------- DOM ----------- //  
     return (
-        <Box>
+        <Box align="center"  alignItems="center" alignContent="center">
         <Text>{finalAnswer ? `The correct answer is: ${correct_answer}` : "Answers:"}</Text>
         <Box h="3"></Box>
         <Spacer/>
-    <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(5, 1fr)"
+    <Grid alignItems="center" alignContent="center" templateRows="repeat(2, 1fr)" templateColumns="repeat(2, 1fr)"
   gap={4}>
         
-        <GridItem w="200px" rowSpan={1} colSpan={1}>{!finalAnswer ? <Text>{answers[0]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[0]}</Text></Tooltip>}</GridItem>
-        <GridItem w="200px" rowSpan={1} colSpan={4}>{!finalAnswer ? <Text>{answers[1]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[1]}</Text></Tooltip>}</GridItem>
-        <GridItem w="200px" rowSpan={1} colSpan={1}>{!finalAnswer ? <Text>{answers[2]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[2]}</Text></Tooltip>}</GridItem>
-        <GridItem w="200px" rowSpan={1} colSpan={3}>{!finalAnswer ? <Text>{answers[3]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[3]}</Text ></Tooltip> }</GridItem>
+        <GridItem align="center" boxShadow="dark-lg"  w="200px" rowSpan={1} colSpan={1}>{!finalAnswer ? <Text>{answers[0]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[0]}</Text></Tooltip>}</GridItem>
+
+        <GridItem align="center" boxShadow="dark-lg" w="200px" rowSpan={1} colSpan={1}>{!finalAnswer ? <Text>{answers[1]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[1]}</Text></Tooltip>}</GridItem>
+
+        <GridItem align="center" boxShadow="dark-lg" w="200px" rowSpan={1} colSpan={1}>{!finalAnswer ? <Text>{answers[2]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[2]}</Text></Tooltip>}</GridItem>
+
+        <GridItem align="center" boxShadow="dark-lg" w="200px" rowSpan={1} colSpan={1}>{!finalAnswer ? <Text>{answers[3]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[3]}</Text ></Tooltip> }</GridItem>
        
     </Grid>
+        <Box h="4"/>
+        <Spacer />
         <Box align="center"><Button onClick={nextQuestion} >Next Question</Button></Box>
     </Box>
     )

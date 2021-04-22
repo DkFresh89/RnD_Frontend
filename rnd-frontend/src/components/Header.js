@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 import logo from './logo.png'
 
 
-function Header ({currentUser, setCurrentUser}) {
+function Header ({currentUser, setCurrentUser, setPoints}) {
     
     const history = useHistory()
 
@@ -12,6 +12,12 @@ function Header ({currentUser, setCurrentUser}) {
         setCurrentUser(null)
         history.push("/")
     }
+
+    const handleNewGame = () => {
+        setPoints(0)
+        history.push("/choose_game")
+    }
+
 
 
     console.log(currentUser)
@@ -27,7 +33,12 @@ function Header ({currentUser, setCurrentUser}) {
 
         <Box width="100%" bg="green" gridColumnStart="1" gridColumnEnd="6" justifyItems="right" textAlign="right">
             {currentUser ? 
-        <Button margin="1em"  onClick={handleLogout} colorScheme="red" width="150px" justifySelf="right">Logout</Button> : null}
+        <Button margin="1em" size="sm"  onClick={handleLogout} colorScheme="red" width="100px" justifySelf="right">Logout</Button> : null}
+            </Box> 
+
+        <Box width="100%" bg="green" gridColumnStart="1" gridColumnEnd="6" justifyItems="right" textAlign="right">
+            {currentUser ? 
+        <Button margin="1em" size="sm"  onClick={handleNewGame} colorScheme="red" width="120px" justifySelf="right">Play New Game</Button> : null}
             </Box> 
     </Grid>
     )

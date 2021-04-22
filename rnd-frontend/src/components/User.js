@@ -20,20 +20,34 @@ function User ({currentUser}) {
         <ListItem key={user["id"]}>{user["username"]}</ListItem>
         
     ))
+
+    const userWinRatio = winRatio.map((user) => (
+        
+        <ListItem key={user.user["id"]}>{user.user["username"]} Correct Ratio of {user["correct_answer_ratio"]}%</ListItem>
+        
+    ))
     // console.log(winRatio[0])
     // console.log(winRatio[0].correct_answer_ratio)
-    // console.log(winRatio[0].user)
+    // console.log(winRatio[0].user["id"])
 // ----------- DOM ----------- //  
     return (
-    <Flex align="center" w="75px" borderRadius="lg">
+    <Flex margin="1" padding="1" align="center" w="100%" h="100%" borderRadius="md">
         <VStack align="center">
-        <Box><Text>User</Text></Box>
+        <Box><Text fontFamily="'Grandstander', cursive" fontWeight="700">Top-Ranked-Players:</Text></Box>
         <Box h="2" />
         <Spacer />
         <OrderedList>
             <Text>{fiveList}</Text>
         </OrderedList>
         </VStack>
+        {/* <VStack align="center">
+        <Box><Text fontFamily="'Grandstander', cursive" fontWeight="700">Right Answer %:</Text></Box>
+        <Box h="2" />
+        <Spacer />
+        <OrderedList>
+            <Text>{userWinRatio}</Text>
+        </OrderedList>
+        </VStack> */}
     </Flex>
     )
 }

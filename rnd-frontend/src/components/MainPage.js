@@ -8,11 +8,12 @@ function MainPage ({questions, setPoints, points, handleGameOver, currentUser, s
     
 // ----------- DOM ----------- //  
     return (
-        <Container align="center" marginTop="5em">
-    <Flex bg="pink" w="100%" h="100%" padding="2em" borderRadius="md">
+        <Container  w="100%" align="center" marginTop="5em">
+    <Flex alignItems="center" bg="pink" w="100%" h="100%" padding="2em" borderRadius="md">
         {/* <h1>Main Page</h1> */}
-        <Box bg="cyan"><User currentUser={currentUser} /></Box>
-        <Box><GamePage 
+        <Box borderRadius="md" w="100%" h="100%" bg="cyan"><User   currentUser={currentUser} /></Box>
+        <Box w="100%">
+            <GamePage 
             questions={questions} 
             setPoints={setPoints} 
             points={points}

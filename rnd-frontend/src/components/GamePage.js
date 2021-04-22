@@ -28,15 +28,17 @@ const nextQuestion = () => {
 
         console.log(q["question"].replace(/&#039;/g, "'"))
         return (
+            <Box align="center" alignItems="center" alignContent="center">
             <Question key={q["question"]} query={q["question"].replace(/&#039;/g, "'").replace(/&quot;/g, `"`).replace(/&ldquo;/g, `"`).replace(/&rsquo;/g, "'").replace(/&rdquo;/g, `"`).replace(/&shy;/g, "-").replace(/&hellip;/g, "...").replace(/&Aring;/g, "Å").replace(/&eacute;/g, "é")} points={points}/>
+            </Box>
         )
     })
         
     const answersArray = questions.map(q => {
         return (
-            <Flex h="100%" w="100%">
-                <Stack direction="row">
-                    <Box>
+            <Flex align="center" h="100%" w="100%">
+                <Stack direction="row" align="center" alignItems="center" alignContent="center">
+                    <Box align="center" alignItems="center" alignContent="center">
             <Answers 
                 key={q["id"]}
                 incorrect_answers={q["incorrect_answers"]} 
@@ -55,7 +57,7 @@ const nextQuestion = () => {
 
 // ----------- DOM ----------- //   
     return (
-    <Container flexDirection="column">
+    <Container alignContent="center" flexDirection="column">
         {/* <h1>Game Page</h1> */}
         {questionsArray[round]} 
         {answersArray[round] ? answersArray[round] : handleGameOver()}

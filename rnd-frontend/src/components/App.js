@@ -64,7 +64,7 @@ function App() {
 // ----------- DOM ----------- //  
   return (
     <div>
-      <Header currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+      <Header currentUser={currentUser} setCurrentUser={setCurrentUser} setPoints={setPoints}/>
       <main>
         <Switch>
           <Route path="/choose_game">
@@ -72,6 +72,7 @@ function App() {
           </Route>
           <Route path="/main_page">
             <MainPage
+              
               currentUser={currentUser} 
               questions={questions} 
               setPoints={setPoints} 
