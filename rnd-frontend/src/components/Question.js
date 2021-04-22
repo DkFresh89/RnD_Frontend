@@ -10,10 +10,14 @@ function Question ({query, points}) {
     return (
     <Container centerContent>
         <Box><h1>Question:</h1></Box>
+        <Box h="5"></Box>
+        <Spacer />
         <Stack >
         <Box>{query}</Box>
         <Box><h3>Points: {points}</h3></Box>
         </Stack>
+        <Box h="3"></Box>
+        <Spacer />
     </Container>
     )
 }

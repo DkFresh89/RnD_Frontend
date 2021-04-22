@@ -1,6 +1,6 @@
 import {useState} from "react"
 import { useHistory } from "react-router-dom"
-import { Box, Center, Square, Stack, Grid, GridItem, Flex, Input, Button} from "@chakra-ui/react"
+import { Box, Text, Select, VStack, Grid, GridItem, Flex, Input, Button, Spacer} from "@chakra-ui/react"
 
 
 
@@ -52,17 +52,18 @@ function ChooseGame ({setQuestions}) {
 // ----------- DOM ----------- //  
     return (
         <Flex justifyContent="center" alignItems="center" height="100%" width="100%" marginTop="10em" alignContent="space-evenly">
-            <h1>Choose Game</h1><br/><br/>
+            <VStack>
+            <Text>Choose Game</Text>
             <Flex alignContent="space-evenly">
             <form onSubmit={handleFetch}>
                 
-                <select onChange={handleDifficulty}>
+                <Box><Select placeholder="Select Difficulty" onChange={handleDifficulty}>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>  
-                </select>
-                <input onChange={handleNumberQuestions} type="number" defaultValue="10" min="1" max="50" />
-                <select onChange={handleCategory}>
+                </Select></Box>
+                <Input onChange={handleNumberQuestions} type="number" defaultValue="10" min="1" max="50" />
+                <Select placeholder="Select Category" onChange={handleCategory}>
                     <option value={9}>General Knowledge</option>
                     <option value={27}>Animals</option>
                     <option value={25}>Art</option>
@@ -87,10 +88,13 @@ function ChooseGame ({setQuestions}) {
                     <option value={19}>Science: Mathematics</option>
                     <option value={21}>Sports</option>
                     <option value={28}>Vehicles</option>
-                </select>
-                <input type="submit" value="Play Game" />
+                </Select>
+                <Box h="2"></Box>
+                <Spacer />
+                <Input type="submit" value="Play Game" />
             </form>
             </Flex>
+            </VStack>
         </Flex>
     )
 }

@@ -6,7 +6,7 @@ import { Box, Flex, Container, Spacer, Stack} from "@chakra-ui/react"
 
 
 
-function GamePage ({questions, setPoints, points, handleGameOver, gameMatch, setGameMatch}) {
+function GamePage ({questions, setPoints, points, handleGameOver, setCurrentUser}) {
 
     // console.log(questions)
     
@@ -59,7 +59,7 @@ const nextQuestion = () => {
         {/* <h1>Game Page</h1> */}
         {questionsArray[round]} 
         {answersArray[round] ? answersArray[round] : handleGameOver()}
-        {!answersArray[round] && <GameOver  points={points} questions={questions}/>}
+        {!answersArray[round] && <GameOver setPoints={setPoints} setCurrentUser={setCurrentUser} points={points} questions={questions}/>}
         
     </Container>
     )

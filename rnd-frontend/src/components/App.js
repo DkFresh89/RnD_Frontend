@@ -7,7 +7,7 @@ import Login from './Login'
 import Signup from './Signup'
 import ChooseGame from './ChooseGame'
 import MainPage from './MainPage';
-import { Button, chakra, Grid, Flex, Box } from "@chakra-ui/react"
+import { Button, chakra, Grid, Flex, Box, Text, Spacer } from "@chakra-ui/react"
 
 
 function App() {
@@ -17,7 +17,6 @@ function App() {
   const [questions, setQuestions] = useState([])
   const [points, setPoints] = useState(0)
   const [currentUser, setCurrentUser] = useState(null)
-  const [gameMatch, setGameMatch] = useState(false)
 
 
 // ----------- Auto Login ----------- //
@@ -48,36 +47,18 @@ function App() {
     fetch("http://localhost:3000/games/gameover", {
       method: 'POST',
       headers: {
-          'Content-Type': 'Application/json',
-          'Accept': 'Application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
       },
       body: JSON.stringify(gameOver)
     })
     .then(resp => resp.json())
     .then(userData =>{
-      setCurrentUser(userData)
       localStorage.setItem("user", JSON.stringify(userData))
+     
     }) 
   }
-// ----------- HandleUserUpdate Call back ----------- // 
-// const handleUserUpdate = () => {
-//   console.log(currentUser.id)
-//   debugger
-//   fetch(`http://localhost:3000/users/game_stats/${currentUser.id}`,{
-//     method: 'PATCH',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'Accept': 'application/json'
-//     },
-//     body: JSON.stringify(currentUser)
-//   })
-//     .then(resp => resp.json())
-//     .then(userData =>{
-//       setCurrentUser(userData)
-//       localStorage.setItem("user", JSON.stringify(userData))
-//     })
-  
-// }
+ 
 
 
 // ----------- DOM ----------- //  
@@ -96,8 +77,7 @@ function App() {
               setPoints={setPoints} 
               points={points} 
               handleGameOver={handleGameOver}
-              gameMatch={gameMatch}
-              setGameMatch={setGameMatch}
+              setCurrentUser={setCurrentUser}
             />
           </Route>
           <Route path="/login" >
@@ -107,11 +87,15 @@ function App() {
             <Signup setCurrentUser={setCurrentUser} />
           </Route>
           <Route path="/">
-            <Flex justifyContent="center" alignItems="center" height="100%" width="100%" marginTop="5em">
-              <Box height="549px" width="966px" bg="gray">
-            <h1>Willkommen!! Please Login or Sign Up</h1><br/><br/>
-            <Button id="login" onClick={handleLogin}>Login</Button>
-            <Button id="signup" onClick={handleSignup}>Signup</Button>
+            <Flex justifyContent="center" alignItems="center" height="50%" width="100%" marginTop="5em">
+              <Box textAlign="center" height="549px" width="966px" >
+                <Box h="150"/>
+                <Spacer />
+            <Text fontFamily="'Dancing Script', cursive" fontWeight="700" fontSize="4xl">Willkommen!! Please Login or Sign Up</Text>
+            <Box h="5"/>
+                <Spacer />
+            <Button bg="blue" textColor="white" padding="5" margin="1" id="login" onClick={handleLogin}><Text >Login</Text></Button>
+            <Button bg="purple" textColor="white" padding="5" margin="1" id="signup" onClick={handleSignup}><Text>Signup</Text></Button>
             </Box>
             </Flex>
           </Route>
