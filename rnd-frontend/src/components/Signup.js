@@ -49,10 +49,11 @@ function Signup ({setCurrentUser}) {
         <Box><Text textAlign="center" fontFamily="'Playfair Display', serif" fontWeight="700">Sign Up Here:</Text></Box>
         <form onSubmit={handleSignup}>
         
-        <Box><Input onChange={handleChange} type="text" placeholder="Username" name="username" w="250px"/></Box>
+        <Box><Input variant="filled" focusBorderColor="lime"  isInvalid
+    errorBorderColor="blue" onChange={handleChange} type="text" placeholder="Username" name="username" w="250px"/></Box>
         <Box h="2"></Box>
         <Spacer/>
-        <Box><Input onChange={handleChange} type="password" placeholder="Password" name="password_digest" w="250px"/></Box>
+        <Box><Input variant="filled" onChange={handleChange} type="password" placeholder="Password" name="password_digest" w="250px"/></Box>
         {/* {errors.map((error) => (
           <p key={error} style={{ color: "red" }}>
             {error}

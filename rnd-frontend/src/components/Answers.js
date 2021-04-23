@@ -80,10 +80,10 @@ function Answers ({questions,incorrect_answers, correct_answer, setPoints, point
 
 
     </Grid>
-            <Box h="4"/>
+            <Box h="10"/>
             <Spacer />
             <Box align="center">
-                <Button w="200px" onClick={nextQuestion}>
+                <Button bg="#0003BF" color="pink" w="200px" onClick={nextQuestion}>
                 <Text fontFamily="'Grandstander', cursive" fontWeight="700">
                     Next Question <ArrowRightIcon/>
                 </Text>

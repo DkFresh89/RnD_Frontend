@@ -1,4 +1,4 @@
-import { Box, Stack, Grid, GridItem, Flex, Input, Button} from "@chakra-ui/react"
+import { Box, Stack, Grid, Text, Flex, Input, Button} from "@chakra-ui/react"
 import { useHistory } from "react-router-dom"
 import {useState} from "react"
 
@@ -53,19 +53,19 @@ function Login ({setCurrentUser}) {
 
 // ----------- DOM ----------- //  
     return (
-        <Flex justifyContent="center" alignItems="center" height="100%" width="100%" marginTop="5em">
+        <Flex justifyContent="center" alignItems="center" height="100%" width="100%">
     <Flex height="549px" width="966px" textAlign="center" alignItems="center" justifyContent="center">
         <form onSubmit={handleLogin}>
-        <h1>Login</h1>
+        <Text fontFamily="'Playfair Display', serif" fontWeight="700">Login Here:</Text>
         <Stack spacing="24px" maxWidth="500px" marginTop="2em" textAlign="center">
-        <Input bg="teal" onChange={handleChange} type="text" placeholder="Username" name="username" textAlign="center"/>
-        <Input bg="teal" onChange={handleChange} type="password" placeholder="Password" name="password" textAlign="center"/>
+        <Input  w="250px" variant="filled" onChange={handleChange} type="text" placeholder="Username" name="username" textAlign="center"/>
+        <Input  w="250px" variant="filled" onChange={handleChange} type="password" placeholder="Password" name="password" textAlign="center"/>
         {/* {errors.map((error) => (
             <p key={error} style={{ color: "red" }}>
             {error}
             </p>
         ))} */}
-        <Button bg="blue" type="submit"> Login </Button>
+        <Box><Button type="submit"><Text fontFamily="'Playfair Display', serif" fontWeight="700">Login</Text>  </Button></Box>
         </Stack>
         </form>
     </Flex>
