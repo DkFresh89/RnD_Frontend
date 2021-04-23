@@ -38,7 +38,7 @@ function User ({currentUser}) {
         <Box h="2" />
         <Spacer />
         <OrderedList>
-            <Text>{fiveList}</Text>
+            <Text fontFamily="'Grandstander', cursive" fontWeight="300">{fiveList}</Text>
         </OrderedList>
         </VStack>
         <Box w="3"/>
@@ -48,7 +48,7 @@ function User ({currentUser}) {
         <Box h="2" />
         <Spacer />
         <UnorderedList>
-            <Text>{userWinRatio}</Text>
+            <Text fontFamily="'Grandstander', cursive" fontWeight="300">{userWinRatio}</Text>
         </UnorderedList>
         </VStack>
     </Flex>
