@@ -36,7 +36,7 @@ const nextQuestion = () => {
         
     const answersArray = questions.map(q => {
         return (
-            <Flex align="center" h="100%" w="100%">
+            <Flex align="center" h="100%" w="100%" justifyContent="center">
                 <Stack direction="row" align="center" alignItems="center" alignContent="center">
                     <Box align="center" alignItems="center" alignContent="center">
             <Answers 
@@ -48,6 +48,7 @@ const nextQuestion = () => {
                 nextQuestion={nextQuestion}
                 finalAnswer={finalAnswer}
                 setFinalAnswer={setFinalAnswer}
+                questions={questions}
             /> 
                     </Box>
                 </Stack>

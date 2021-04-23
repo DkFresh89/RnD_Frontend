@@ -1,7 +1,7 @@
 import { chakra, Grid, Box, Flex, GridItem, Text, Tooltip, Spacer } from "@chakra-ui/react"
 import { motion } from "framer-motion"
 
-function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQuestion, finalAnswer, setFinalAnswer}) {
+function Answers ({questions,incorrect_answers, correct_answer, setPoints, points, nextQuestion, finalAnswer, setFinalAnswer}) {
 
     const Button = chakra("button", {
         baseStyle: {
@@ -12,18 +12,25 @@ function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQue
         },
       })
     
-   console.log(points);
+//    console.log(points);
 
         //switch statement for 
     const checkAnswer = (e) => {
-        // debugger
-        if (e.target.innerText === correct_answer){
-            setPoints(points => points + 10)
-
+        console.log(questions[0]["difficulty"])
+        if(e.target.innerText === correct_answer){
+            if(questions[0]["difficulty"] === "easy"){
+                setPoints(points => points + 10)
+                }
+            else if(questions[0]["difficulty"] === "medium"){
+                setPoints(points => points + 20)
+            }
+            else {
+                setPoints(points => points + 30)
+            }
         }
         setFinalAnswer(true)
     }
-    console.log(points);
+    // console.log(questions);
 
     const answers = [...incorrect_answers, correct_answer].sort(() => Math.random() - 0.5).map(answers =>{
         return <li key={answers} correct_answer={{correct_answer}, "hidden" } onClick={!finalAnswer ? checkAnswer : null}  >{answers.replace(/&#039;/g, "'").replace(/&quot;/g, `"`).replace(/&ldquo;/g, `"`).replace(/&rsquo;/g, "'").replace(/&rdquo;/g, `"`).replace(/&shy;/g, "-").replace(/&hellip;/g, "...").replace(/&Aring;/g, "Å").replace(/&oacute;/g, "ó")}</li>
@@ -31,11 +38,11 @@ function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQue
     
 // ----------- DOM ----------- //  
     return (
-        <Box align="center"  alignItems="center" alignContent="center" justifyContent="center">
+        <Flex direction="column" align="center"  alignItems="center" alignContent="center" justifyContent="space-around" >
             <Text>{finalAnswer ? `The correct answer is: ${correct_answer}` : "Answers:"}</Text>
                 <Box h="3"/>
                     <Spacer/>
-            <Grid justifyContent="center" alignItems="center" alignContent="center" templateRows="repeat(2, 1fr)" templateColumns="repeat(2, 1fr)"gap={4}>
+            <Grid justifyContent="space-around" alignItems="center" alignContent="center" templateRows="repeat(2, 1fr)" templateColumns="repeat(2, 1fr)"gap={4}>
        <motion.div whileHover={{ scale: 1.2 }}>
         <GridItem bg="green" align="center" boxShadow="dark-lg"  w="200px" rowSpan={1} colSpan={1}>
             {!finalAnswer ? <Text>{answers[0]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[0]}</Text></Tooltip>}
@@ -70,7 +77,7 @@ function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQue
         <Spacer />
          <Box align="center"><Button onClick={nextQuestion} >Next Question</Button></Box>
         
-    </Box>
+    </Flex>
     )
 }
 

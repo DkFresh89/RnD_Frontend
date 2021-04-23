@@ -41,6 +41,7 @@ function App() {
       game_type: questions[0]["category"],
       time: 0.0,
       num_of_questions: questions.length,
+      difficulty: questions[0]["difficulty"],
       user_id: currentUser.id
     }
   // ----------- FetchPost to create a new Game Instance ----------- // 

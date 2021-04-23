@@ -24,7 +24,7 @@ function User ({currentUser}) {
 
     const userWinRatio = winRatio.map((user) => (
         
-        <ListItem key={user.user["id"]}>{user.user["username"]}: {user["correct_answer_ratio"]}%</ListItem>
+        <ListItem key={user.user["id"]}>{user.user["username"]}: {user["correct_answer_ratio"].toFixed(2)}%</ListItem>
         
     ))
     // console.log(winRatio[0])
