@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom"
 import {useState} from "react"
 import { Box, Stack, Grid, GridItem, Flex, Input, Button, Text, VStack, Spacer} from "@chakra-ui/react"
+import { AddIcon } from '@chakra-ui/icons'
 
 function Signup ({setCurrentUser}) {
 
@@ -46,7 +47,7 @@ function Signup ({setCurrentUser}) {
     return (
     <Flex justifyContent="center" alignItems="center" height="100%" width="100%" marginTop="10em">
         <VStack >
-        <Box><Text textAlign="center" fontFamily="'Playfair Display', serif" fontWeight="700">Sign Up Here:</Text></Box>
+        <Box><Text textAlign="center" fontFamily="'Playfair Display', serif" fontWeight="700" fontSize="3xl">Sign Up Here:</Text></Box>
         <form onSubmit={handleSignup}>
         
         <Box><Input variant="filled" focusBorderColor="lime"  isInvalid
@@ -61,7 +62,7 @@ function Signup ({setCurrentUser}) {
         ))} */}
         <Box h="5"></Box>
         <Spacer/>
-        <Box align="center"><Button type="submit" ><Text fontFamily="'Playfair Display', serif" >Sign Up</Text></Button></Box>
+        <Box align="center"><Button type="submit" ><Text fontFamily="'Playfair Display', serif" > Sign Up  </Text></Button></Box>
         </form>
         </VStack>
     </Flex>

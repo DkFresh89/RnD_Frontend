@@ -58,7 +58,7 @@ function ChooseGame ({setQuestions}) {
             <form onSubmit={handleFetch}>
                 
                 <Box><Select placeholder="Select Difficulty" onChange={handleDifficulty}>
-                    <option value="easy">Easy +10 Points</option>
+                    <option bg="green" value="easy">Easy +10 Points</option>
                     <option value="medium">Medium +20 Points</option>
                     <option value="hard">Hard +30 Points</option>  
                 </Select></Box>
