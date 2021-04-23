@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react"
-import { Box, Circle, Button, Stack, ListItem, OrderedList, Flex, Text, Spacer, VStack} from "@chakra-ui/react"
+import { Box, Circle, Button, Stack, ListItem, OrderedList, Flex, Text, Spacer, VStack, UnorderedList} from "@chakra-ui/react"
+import { motion } from "framer-motion"
 
 function User ({currentUser}) {
 
@@ -16,14 +17,14 @@ function User ({currentUser}) {
     }, [])
     const fiveList = topFiveUsers.map((user) => (
         // console.log(user["username"])
-        
-        <ListItem key={user["id"]}>{user["username"]}</ListItem>
-        
+        <motion.div >
+        <ListItem key={user["id"]}>{user["username"]} High Score:{user["high_score"]}</ListItem>
+        </motion.div>
     ))
 
     const userWinRatio = winRatio.map((user) => (
         
-        <ListItem key={user.user["id"]}>{user.user["username"]} Correct Ratio of {user["correct_answer_ratio"]}%</ListItem>
+        <ListItem key={user.user["id"]}>{user.user["username"]}: {user["correct_answer_ratio"]}%</ListItem>
         
     ))
     // console.log(winRatio[0])
@@ -31,8 +32,8 @@ function User ({currentUser}) {
     // console.log(winRatio[0].user["id"])
 // ----------- DOM ----------- //  
     return (
-    <Flex margin="1" padding="1" align="center" w="100%" h="100%" borderRadius="md">
-        <VStack align="center">
+    <Flex margin="1" padding="3" border="purple" align="center" w="100%" h="100%" borderRadius="md">
+        <VStack align="center" padding="2" margin="1">
         <Box><Text fontFamily="'Grandstander', cursive" fontWeight="700">Top-Ranked-Players:</Text></Box>
         <Box h="2" />
         <Spacer />
@@ -40,14 +41,16 @@ function User ({currentUser}) {
             <Text>{fiveList}</Text>
         </OrderedList>
         </VStack>
-        {/* <VStack align="center">
+        <Box w="3"/>
+        <Spacer />
+        <VStack align="center" margin="1" padding="1" >
         <Box><Text fontFamily="'Grandstander', cursive" fontWeight="700">Right Answer %:</Text></Box>
         <Box h="2" />
         <Spacer />
-        <OrderedList>
+        <UnorderedList>
             <Text>{userWinRatio}</Text>
-        </OrderedList>
-        </VStack> */}
+        </UnorderedList>
+        </VStack>
     </Flex>
     )
 }

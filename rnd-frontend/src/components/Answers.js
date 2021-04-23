@@ -1,4 +1,5 @@
 import { chakra, Grid, Box, Flex, GridItem, Text, Tooltip, Spacer } from "@chakra-ui/react"
+import { motion } from "framer-motion"
 
 function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQuestion, finalAnswer, setFinalAnswer}) {
 
@@ -30,25 +31,45 @@ function Answers ({incorrect_answers, correct_answer, setPoints, points, nextQue
     
 // ----------- DOM ----------- //  
     return (
-        <Box align="center"  alignItems="center" alignContent="center">
-        <Text>{finalAnswer ? `The correct answer is: ${correct_answer}` : "Answers:"}</Text>
-        <Box h="3"></Box>
-        <Spacer/>
-    <Grid alignItems="center" alignContent="center" templateRows="repeat(2, 1fr)" templateColumns="repeat(2, 1fr)"
-  gap={4}>
-        
-        <GridItem align="center" boxShadow="dark-lg"  w="200px" rowSpan={1} colSpan={1}>{!finalAnswer ? <Text>{answers[0]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[0]}</Text></Tooltip>}</GridItem>
+        <Box align="center"  alignItems="center" alignContent="center" justifyContent="center">
+            <Text>{finalAnswer ? `The correct answer is: ${correct_answer}` : "Answers:"}</Text>
+                <Box h="3"/>
+                    <Spacer/>
+            <Grid justifyContent="center" alignItems="center" alignContent="center" templateRows="repeat(2, 1fr)" templateColumns="repeat(2, 1fr)"gap={4}>
+       <motion.div whileHover={{ scale: 1.2 }}>
+        <GridItem bg="green" align="center" boxShadow="dark-lg"  w="200px" rowSpan={1} colSpan={1}>
+            {!finalAnswer ? <Text>{answers[0]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[0]}</Text></Tooltip>}
+            </GridItem>
+        </motion.div>
 
-        <GridItem align="center" boxShadow="dark-lg" w="200px" rowSpan={1} colSpan={1}>{!finalAnswer ? <Text>{answers[1]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[1]}</Text></Tooltip>}</GridItem>
 
-        <GridItem align="center" boxShadow="dark-lg" w="200px" rowSpan={1} colSpan={1}>{!finalAnswer ? <Text>{answers[2]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[2]}</Text></Tooltip>}</GridItem>
 
-        <GridItem align="center" boxShadow="dark-lg" w="200px" rowSpan={1} colSpan={1}>{!finalAnswer ? <Text>{answers[3]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[3]}</Text ></Tooltip> }</GridItem>
-       
+        <motion.div whileHover={{ scale: 1.2 }}>
+        <GridItem bg="green" align="center" boxShadow="dark-lg" w="200px" rowSpan={1} colSpan={1}>
+            {!finalAnswer ? <Text>{answers[1]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[1]}</Text></Tooltip>}
+            </GridItem>
+        </motion.div>
+
+    
+<motion.div whileHover={{ scale: 1.2 }}>
+        <GridItem bg="green" align="center" boxShadow="dark-lg" w="200px" rowSpan={1} colSpan={1}>
+            {!finalAnswer ? <Text>{answers[2]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[2]}</Text></Tooltip>}
+            </GridItem>
+</motion.div>
+
+
+<motion.div whileHover={{ scale: 1.2 }}>
+        <GridItem bg="green" align="center" boxShadow="dark-lg" w="200px" rowSpan={1} colSpan={1}>
+            {!finalAnswer ? <Text>{answers[3]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[3]}</Text ></Tooltip> }
+            </GridItem>
+</motion.div>
+
+
     </Grid>
         <Box h="4"/>
         <Spacer />
-        <Box align="center"><Button onClick={nextQuestion} >Next Question</Button></Box>
+         <Box align="center"><Button onClick={nextQuestion} >Next Question</Button></Box>
+        
     </Box>
     )
 }

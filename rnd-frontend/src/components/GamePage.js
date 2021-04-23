@@ -2,7 +2,7 @@ import Question from './Question'
 import Answers from './Answers'
 import {useState} from 'react'
 import GameOver from './GameOver'
-import { Box, Flex, Container, Spacer, Stack} from "@chakra-ui/react"
+import { Box, Flex, Container, Spacer, Stack, Text} from "@chakra-ui/react"
 
 
 
@@ -57,13 +57,16 @@ const nextQuestion = () => {
 
 // ----------- DOM ----------- //   
     return (
-    <Container alignContent="center" flexDirection="column">
+
+    <Container align="center" alignContent="center" flexDirection="column" padding="2">
+        <Box align="center">
         {/* <h1>Game Page</h1> */}
         {questionsArray[round]} 
         {answersArray[round] ? answersArray[round] : handleGameOver()}
         {!answersArray[round] && <GameOver setPoints={setPoints} setCurrentUser={setCurrentUser} points={points} questions={questions}/>}
-        
+        </Box>
     </Container>
+    
     )
 
 }

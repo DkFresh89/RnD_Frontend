@@ -63,14 +63,15 @@ function App() {
 
 // ----------- DOM ----------- //  
   return (
-    <div>
+    <Box>
       <Header currentUser={currentUser} setCurrentUser={setCurrentUser} setPoints={setPoints}/>
-      <main>
+      <Box alignContent="center">
         <Switch>
           <Route path="/choose_game">
             <ChooseGame setQuestions={setQuestions} />
           </Route>
           <Route path="/main_page">
+            
             <MainPage
               
               currentUser={currentUser} 
@@ -80,6 +81,7 @@ function App() {
               handleGameOver={handleGameOver}
               setCurrentUser={setCurrentUser}
             />
+           
           </Route>
           <Route path="/login" >
             <Login setCurrentUser={setCurrentUser} />
@@ -101,8 +103,8 @@ function App() {
             </Flex>
           </Route>
         </Switch>
-      </main>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
