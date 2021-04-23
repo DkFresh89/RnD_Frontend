@@ -1,4 +1,4 @@
-import { Box, Flex, Container, Spacer, Stack} from "@chakra-ui/react"
+import { Box, Container, Spacer, Stack, Text} from "@chakra-ui/react"
 
 function Question ({query, points}) {
 
@@ -9,12 +9,17 @@ function Question ({query, points}) {
 // ----------- DOM ----------- //  
     return (
     <Container centerContent>
-        <Box><h1>Question:</h1></Box>
+        <Box>
+            <Text fontFamily="'Grandstander', cursive" fontWeight="700">Question:</Text>
+        </Box>
         <Box h="5"></Box>
         <Spacer />
         <Stack >
-        <Box>{query}</Box>
-        <Box><h3>Points: {points}</h3></Box>
+            <Box><Text fontFamily="'Grandstander', cursive" fontWeight="300" 
+            >{query}</Text></Box>
+            <Box>
+                <Text fontFamily="'Grandstander', cursive" fontWeight="700">Points: {points}</Text>
+            </Box>
         </Stack>
         <Box h="3"></Box>
         <Spacer />

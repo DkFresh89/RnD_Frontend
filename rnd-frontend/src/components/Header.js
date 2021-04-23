@@ -23,20 +23,20 @@ function Header ({currentUser, setCurrentUser, setPoints}) {
     console.log(currentUser)
 // ----------- DOM ----------- //  
     return (
-    <Grid  w="100%" bg="green" p={0} templateColumns="1fr 1fr 1fr" templateRows="110px 20%" justifyContent="center" >
+    <Grid  w="100%" bg="green" p={0} templateColumns="1fr 1fr 1fr" templateRows="110px 25%" justifyContent="center" >
 
         <Box textAlign="center" w="120px" h="30" borderRadius="md" bg="red" alignSelf="center" justifySelf="center">{currentUser ? <Text fontFamily="'Caveat', cursive" fontWeight="700">Welcome {currentUser["username"]}</Text> : "Create an account!"}</Box>
 
-        <Center id="logo" h="100%"><Image fit="contain" boxSize="max-content" src={logo} alt="R & D Trivia" /></Center>
+        <Center max w="100%" id="logo" h="100%"><Image fit="contain" boxSize="max-content" src={logo} alt="R & D Trivia" /></Center>
 
         <Box textAlign="center" w="120px" h="30" borderRadius="md" bg="red" alignSelf="center" justifySelf="center">{currentUser ? <Text fontFamily="'Caveat', cursive" fontWeight="700"> High Score: {currentUser["high_score"]}</Text> : "Login!"}</Box>
 
-        <Box alignSelf="center" width="100%" bg="green" gridColumnStart="1" gridColumnEnd="4" justifyItems="right" textAlign="right" gridRowStart="-2">
+        <Box alignSelf="center" width="100%" bg="green" gridColumnStart="3" gridColumnEnd="3" textAlign="center" gridRowStart="-2">
             {currentUser ? 
         <Button margin="1em" size="sm"  onClick={handleLogout} colorScheme="red" width="100px" justifySelf="right">Logout</Button> : null}
             </Box> 
 
-        <Box alignSelf="center" width="100%" bg="green" gridColumnStart="1" gridColumnEnd="1" gridRowStart="2" justifySelf="left" textAlign="left" >
+        <Box alignSelf="center" width="100%" bg="green" gridColumnStart="1" gridColumnEnd="1" gridRowStart="2" textAlign="center" >
             {currentUser ? 
         <Button margin="1em" size="sm"  onClick={handleNewGame} colorScheme="purple" width="120px" justifySelf="left">Play New Game</Button> : null}
             </Box> 
