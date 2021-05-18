@@ -23,24 +23,31 @@ function Header ({currentUser, setCurrentUser, setPoints}) {
     console.log(currentUser)
 // ----------- DOM ----------- //  
     return (
-    <Grid  w="100%" bg="green" p={0} templateColumns="1fr 1fr 1fr" templateRows="110px 25%" justifyContent="center" >
+        <Flex bg="green"  >
 
-        <Box textAlign="center" w="120px" h="30" borderRadius="md" bg="red" alignSelf="center" justifySelf="center">{currentUser ? <Text fontSize="xl" fontFamily="'Caveat', cursive" fontWeight="700">Welcome {currentUser["username"]}!</Text> : "Create an account!"}</Box>
-
-        <Center max w="100%" id="logo" h="100%"><Image fit="contain" boxSize="max-content" src={logo} alt="R & D Trivia" /></Center>
-
-        <Box textAlign="center" w="120px" h="30" borderRadius="md" bg="red" alignSelf="center" justifySelf="center">{currentUser ? <Text fontSize="xl" fontFamily="'Caveat', cursive" fontWeight="700"> High Score: {currentUser["high_score"]}</Text> : "Login!"}</Box>
-
-        <Box alignSelf="center" width="100%" bg="green" gridColumnStart="3" gridColumnEnd="3" textAlign="center" gridRowStart="-2">
+        <Box  width="100%" bg="green" textAlign="center" >
             {currentUser ? 
-        <Button margin="1em" size="sm"  onClick={handleLogout} colorScheme="red" width="100px" justifySelf="right">Logout</Button> : null}
-            </Box> 
+            <Button margin="1em" size="sm"  onClick={handleNewGame} colorScheme="purple" width="120px" >Play New Game</Button> : null}
+        </Box> 
 
-        <Box alignSelf="center" width="100%" bg="green" gridColumnStart="1" gridColumnEnd="1" gridRowStart="2" textAlign="center" >
+        <Box textAlign="center" w="120px" h="30" borderRadius="md" bg="red" >
+            {currentUser ? <Text fontSize="xl" fontFamily="'Caveat', cursive" fontWeight="700">Welcome {currentUser["username"]}!</Text> : "Create an account!"}
+        </Box>
+
+        <Center max w="100%" id="logo" h="100%">
+            <Image fit="contain" boxSize="max-content" src={logo} alt="R & D Trivia" />
+        </Center>
+
+        <Box textAlign="center" w="120px" h="30" borderRadius="md" bg="red">
+            {currentUser ? <Text fontSize="xl" fontFamily="'Caveat', cursive" fontWeight="700"> High Score: {currentUser["high_score"]}</Text> : "Login!"}
+        </Box>
+
+        <Box  width="100%" bg="green"  textAlign="center">
             {currentUser ? 
-        <Button margin="1em" size="sm"  onClick={handleNewGame} colorScheme="purple" width="120px" justifySelf="left">Play New Game</Button> : null}
-            </Box> 
-    </Grid>
+            <Button margin="1em" size="sm"  onClick={handleLogout} colorScheme="red" width="100px" >Logout</Button> : null}
+        </Box> 
+
+    </Flex>
     )
 }
 
