@@ -82,7 +82,7 @@ function App() {
               handleGameOver={handleGameOver}
               setCurrentUser={setCurrentUser}
             />
-           
+            
           </Route>
           <Route path="/login" >
             <Login setCurrentUser={setCurrentUser} />
