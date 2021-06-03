@@ -8,7 +8,7 @@ function User ({currentUser}) {
     const [winRatio, setWinRatio] = useState([])
 
     useEffect(() => {
-    fetch("http://localhost:3000/users/top_five")
+    fetch("https://rnd-trivia.herokuapp.com/users/top_five")
     .then(res => res.json())
     .then(userStats =>{
         setTopFiveUsers(userStats["top_five_users"])

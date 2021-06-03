@@ -45,7 +45,7 @@ function App() {
       user_id: currentUser.id
     }
   // ----------- FetchPost to create a new Game Instance ----------- // 
-    fetch("http://localhost:3000/games/gameover", {
+    fetch("https://rnd-trivia.herokuapp.com/games/gameover", {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',

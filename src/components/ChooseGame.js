@@ -32,7 +32,7 @@ function ChooseGame ({setQuestions}) {
             category: category
         }
         
-        fetch("http://localhost:3000/questions/choose_game", {
+        fetch("https://rnd-trivia.herokuapp.com/questions/choose_game", {
             method: 'POST',
             headers: {
                 'Content-Type': 'Application/json',
