@@ -24,7 +24,7 @@ function Login ({setCurrentUser}) {
     const handleLogin = (e) => {
         e.preventDefault()
 
-        fetch("https://rnd-trivia.herokuapp.com//login", {
+        fetch("https://rnd-trivia.herokuapp.com/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'Application/json',
