@@ -21,13 +21,13 @@ function App() {
 
 // ----------- Auto Login ----------- //
 
-  useEffect(() => {
-    const getUser = localStorage.getItem("user")
+  // useEffect(() => {
+  //   const getUser = localStorage.getItem("user")
 
-    if (getUser) {
-      setCurrentUser(JSON.parse(getUser))
-    }
-  }, [])
+  //   if (getUser) {
+  //     setCurrentUser(JSON.parse(getUser))
+  //   }
+  // }, [])
 
   // ----------- Handle Login and Signup Call Backs ----------- //
   const handleLogin = () => history.push("/login")
