@@ -1,6 +1,6 @@
-import { chakra, Grid, Box, Flex, GridItem, Text, Tooltip, Spacer, Icon } from "@chakra-ui/react"
-import {ArrowForwardIcon, ArrowRightIcon} from '@chakra-ui/icons'
-import { FaArrowRight } from "react-icons/fa"
+import { chakra, Grid, Box, Flex, GridItem, Text, Tooltip, Spacer } from "@chakra-ui/react"
+import {ArrowRightIcon} from '@chakra-ui/icons'
+
 import { motion } from "framer-motion"
 
 function Answers ({questions,incorrect_answers, correct_answer, setPoints, points, nextQuestion, finalAnswer, setFinalAnswer}) {

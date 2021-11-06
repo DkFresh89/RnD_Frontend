@@ -1,6 +1,6 @@
 import GamePage from './GamePage'
 import User from './User'
-import { Box, Center, Button, Grid, Container, Flex} from "@chakra-ui/react"
+import { Box, Container, Flex} from "@chakra-ui/react"
 
 function MainPage ({questions, setPoints, points, handleGameOver, currentUser, setCurrentUser}) {
 

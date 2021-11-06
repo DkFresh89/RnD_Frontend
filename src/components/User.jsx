@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import { Box, Circle, Button, Stack, ListItem, OrderedList, Flex, Text, Spacer, VStack, UnorderedList} from "@chakra-ui/react"
+import { Box, ListItem, OrderedList, Flex, Text, Spacer, VStack, UnorderedList} from "@chakra-ui/react"
 import { motion } from "framer-motion"
 
 function User ({currentUser}) {

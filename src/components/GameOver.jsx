@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Stack, Text} from "@chakra-ui/react"
+import { Box, Button, Stack, Text} from "@chakra-ui/react"
 import { useHistory } from "react-router-dom"
 
 
@@ -7,8 +7,8 @@ function GameOver({points, questions, setCurrentUser, setPoints}) {
     const history = useHistory()
 
     const handleNewGame = () => {
-        const getUser = localStorage.getItem("user")
-        setCurrentUser(JSON.parse(getUser))
+        // const getUser = localStorage.getItem("user")
+        // setCurrentUser(JSON.parse(getUser))
         history.push("/choose_game")
         setPoints(0)
     }

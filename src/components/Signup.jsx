@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom"
 import {useState} from "react"
-import { Box, Stack, Grid, GridItem, Flex, Input, Button, Text, VStack, Spacer} from "@chakra-ui/react"
-import { AddIcon } from '@chakra-ui/icons'
+import { Box, Flex, Input, Button, Text, VStack, Spacer} from "@chakra-ui/react"
+
 
 function Signup ({setCurrentUser}) {
 

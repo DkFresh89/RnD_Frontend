@@ -7,7 +7,7 @@ import Login from './Login'
 import Signup from './Signup'
 import ChooseGame from './ChooseGame'
 import MainPage from './MainPage';
-import { Button, chakra, Grid, Flex, Box, Text, Spacer } from "@chakra-ui/react"
+import { Button, Flex, Box, Text, Spacer } from "@chakra-ui/react"
 
 
 function App() {
@@ -32,6 +32,7 @@ function App() {
   // ----------- Handle Login and Signup Call Backs ----------- //
   const handleLogin = () => history.push("/login")
   const handleSignup = () => history.push("/signup")
+  const pressPlay = () => history.push('/choose_game')
   
   
 // ----------- HandleGameOver Call back ----------- //  
@@ -42,7 +43,7 @@ function App() {
       time: 0.0,
       num_of_questions: questions.length,
       difficulty: questions[0]["difficulty"],
-      user_id: currentUser.id
+      // user_id: currentUser.id
     }
   // ----------- FetchPost to create a new Game Instance ----------- // 
     fetch("https://rnd-trivia.herokuapp.com/games/gameover", {
@@ -95,11 +96,11 @@ function App() {
               <Box textAlign="center" height="549px" width="966px" >
                 <Box h="150"/>
                 <Spacer />
-            <Text fontFamily="'Dancing Script', cursive" fontWeight="700" fontSize="4xl">Willkommen!! Please Login or Sign Up</Text>
+            <Text fontFamily="'Dancing Script', cursive" fontWeight="700" fontSize="4xl">Willkommen!! Press Play to begin!</Text>
             <Box h="5"/>
                 <Spacer />
-            <Button bg="blue" textColor="white" padding="5" margin="1" id="login" onClick={handleLogin}><Text >Login</Text></Button>
-            <Button bg="purple" textColor="white" padding="5" margin="1" id="signup" onClick={handleSignup}><Text>Signup</Text></Button>
+            {/* <Button bg="blue" textColor="white" padding="5" margin="1" id="login" onClick={pressPlay}><Text >Login</Text></Button> */}
+            <Button bg="purple" textColor="white" padding="5" margin="1" id="signup" onClick={pressPlay}><Text>Play!</Text></Button>
             </Box>
             </Flex>
           </Route>

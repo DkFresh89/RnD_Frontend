@@ -2,13 +2,14 @@ import Question from './Question'
 import Answers from './Answers'
 import {useState} from 'react'
 import GameOver from './GameOver'
-import { Box, Flex, Container, Spacer, Stack, Text} from "@chakra-ui/react"
+import { Box, Flex, Container, Stack} from "@chakra-ui/react"
 
 
 
 function GamePage ({questions, setPoints, points, handleGameOver, setCurrentUser}) {
 
-    // console.log(questions)
+    console.log(questions)
+    console.log(questions.length)
     
 // ----------- Use States ----------- //
     const [round, setRound] = useState(0)
