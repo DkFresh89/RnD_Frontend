@@ -1,4 +1,4 @@
-import { Box, Center, Button, Image, Text, Flex} from "@chakra-ui/react"
+import { Box, Center, Button, Image, Text, Flex, useColorMode} from "@chakra-ui/react"
 import { useHistory } from "react-router-dom"
 import logo from './logo.png'
 
@@ -6,6 +6,7 @@ import logo from './logo.png'
 function Header ({currentUser, setCurrentUser, setPoints}) {
     
     const history = useHistory()
+    const { colorMode, toggleColorMode } = useColorMode()
 
     const handleLogout = () => {
         localStorage.clear()
@@ -24,6 +25,11 @@ function Header ({currentUser, setCurrentUser, setPoints}) {
 // ----------- DOM ----------- //  
     return (
     <Flex bg="green" maxH='25em'  >
+        <Box>
+            <Button margin='4' padding='2' onClick={toggleColorMode}>
+                Toggle {colorMode === "light" ? "Dark" : "Light"}
+            </Button>
+        </Box>
 
         <Box  width="100%" bg="green" textAlign="center" >
             {currentUser ? 
@@ -34,7 +40,7 @@ function Header ({currentUser, setCurrentUser, setPoints}) {
             {currentUser ? <Text fontSize="xl" fontFamily="'Caveat', cursive" fontWeight="700">Welcome {currentUser["username"]}!</Text> : null}
         </Box>}
 
-        <Center id="logo" >
+        <Center marginLeft='-130' id="logo" >
             <Image fit="contain" boxSize='fit-content' src={logo} alt="R & D Trivia" />
         </Center>
 

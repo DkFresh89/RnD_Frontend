@@ -14,7 +14,7 @@ function Answers ({questions,incorrect_answers, correct_answer, setPoints, point
         },
       })
     
-//    console.log(points);
+  
 
         //switch statement for 
     const checkAnswer = (e) => {
@@ -38,6 +38,7 @@ function Answers ({questions,incorrect_answers, correct_answer, setPoints, point
         return <p key={answers} correct_answer={{correct_answer}, "hidden" } onClick={!finalAnswer ? checkAnswer : null}  >{answers.replace(/&#039;/g, "'").replace(/&quot;/g, `"`).replace(/&ldquo;/g, `"`).replace(/&rsquo;/g, "'").replace(/&rdquo;/g, `"`).replace(/&shy;/g, "-").replace(/&hellip;/g, "...").replace(/&Aring;/g, "Å").replace(/&oacute;/g, "ó")}</p>
     })
     
+    console.log(answers);
 // ----------- DOM ----------- //  
     return (
         <Flex direction="column" align="center"  alignItems="center" alignContent="center" justifyContent="space-around" >
@@ -63,21 +64,20 @@ function Answers ({questions,incorrect_answers, correct_answer, setPoints, point
         </motion.div>
 
     
-<motion.div whileHover={{ scale: 1.2 }}>
+{ answers.length > 2 && <motion.div whileHover={{ scale: 1.2 }}>
         <GridItem padding="1" borderRadius="md"  bg="green" align="center" boxShadow="dark-lg" w="200px" rowSpan={1} colSpan={1}>
             {!finalAnswer ? <Text color="pink"  fontFamily="'Grandstander', cursive" fontWeight="500"
             >{answers[2]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[2]}</Text></Tooltip>}
             </GridItem>
-</motion.div>
+</motion.div>}
 
 
-<motion.div whileHover={{ scale: 1.2 }}>
+{answers.length > 2 && <motion.div whileHover={{ scale: 1.2 }}>
         <GridItem padding="1" borderRadius="md"  bg="green" align="center" boxShadow="dark-lg" w="200px" rowSpan={1} colSpan={1}>
             {!finalAnswer ? <Text color="pink" fontStyle="bold" fontFamily="'Grandstander', cursive" fontWeight="500"
             >{answers[3]}</Text> : <Tooltip label="You've Already Answered!"><Text opacity="0.2">{answers[3]}</Text ></Tooltip> }
             </GridItem>
-</motion.div>
-
+</motion.div>} 
 
     </Grid>
             <Box h="10"/>

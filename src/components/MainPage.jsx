@@ -21,7 +21,7 @@ function MainPage ({questions, setPoints, points, handleGameOver, currentUser, s
             handleGameOver={handleGameOver}
             setCurrentUser={setCurrentUser}
         /></Box>
-           <Box borderRadius="md"  bg="cyan"><User   currentUser={currentUser} /></Box>
+           {/* <Box borderRadius="md"  bg="cyan"><User   currentUser={currentUser} /></Box> */}
         </Box>
     </Flex>
     </Container>
