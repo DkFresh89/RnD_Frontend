@@ -7,6 +7,7 @@ import Login from './Login'
 import Signup from './Signup'
 import ChooseGame from './ChooseGame'
 import MainPage from './MainPage';
+import Footer from './Footer';
 import { Button, Flex, Box, Text, Spacer } from "@chakra-ui/react"
 
 
@@ -65,6 +66,7 @@ function App() {
 
 // ----------- DOM ----------- //  
   return (
+    <>
     <Box>
       <Header currentUser={currentUser} setCurrentUser={setCurrentUser} setPoints={setPoints}/>
       <Box alignContent="center">
@@ -107,6 +109,10 @@ function App() {
         </Switch>
       </Box>
     </Box>
+     <Flex justifyContent='center'  >
+      <Footer />
+     </Flex>
+      </>
   );
 }
 
